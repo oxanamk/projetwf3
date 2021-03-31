@@ -1,0 +1,85 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+#bgsignin {
+    background: url("../images/wood.webp");
+    width: 100%;
+}
+
+#btnsignin {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imagesignin {
+    width: 350px;
+    height: 330px;
+}
+
+#mainsignin {
+    width: 60%;
+    margin-top: 8rem;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-bottom: 10rem;
+}
+
+#sec1signin {
+    width: 40%;
+}
+
+.logosin {
+    width: 55px;
+    height: 55px;
+}
+
+#barnav {
+    width: 70%;
+}
+
+#nav {
+    position: fixed;
+    width: 100%;
+}
+
+@media only screen and (min-width:0px) and (max-width: 750px) {
+    #imagesignin {
+        display: none;
+    }
+    #mainsignin {
+        width: 85%;
+    }
+    #logosignin {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    #nav {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:750px) and (max-width: 1370px) {
+    #imagesignin {
+        width: 35%;
+        height: 35%;
+    }
+    #mainsignin {
+        width: 70%;
+    }
+    #sec1signin {
+        width: 65%;
+    }
+    #barnav {
+        width: 70%;
+    }
+}
