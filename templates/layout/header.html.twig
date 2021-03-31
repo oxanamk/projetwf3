@@ -12,24 +12,40 @@
 		</title>
 		{% block css %}
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 			<link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+			<link rel="stylesheet" href="{{ asset('asset/css/stylewip.css') }}">
 
 		{% endblock %}
 	</head>
-	<body>
+	{% block body %}
+		<body>
+			<header>
 
-		{% set route = app.request.get('_route') %}
+				{% set route = app.request.get('_route') %}
 
-		<nav class="nav nav-fill justify-content-center bg-white mb-5">
-			<a class="nav-link {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">À propos</a>
-		</nav>
+				<nav class="nav nav-fill  d-flex justify-content-between align-items-center bg-white mb-5" id="nav">
+					<div class="d-flex align-items-center mr-5">
+						<a class="nav-link  {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">
+							<img class="logosin" src="{{ asset('asset/images/paw.png') }}">
+						</a>
+						<a class="nav-link text-dark h2 font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Adopt'Animal</a>
+					</div>
+					<div class="d-flex align-items-center ml-5" id="barnav">
+						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Annonces</a>
+						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">À propos</a>
+						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Nous aider</a>
+						<button class=" btn btn-success mr-5 text-dark font-weight-bold icoUser {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}" title="User">
+							<i class="fa fa-user"></i>
+							Connexion</button>
+						<a class="mr-5 text-dark font-weight-bold icoUser {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}"></i>Inscription</a>
+					</div>
+				</nav>
+			</header>
 
-		{% block body %}{% endblock %}
 
-		{% block js %}
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		{% endblock %}
-	</body>
-</html>
+{% block js %}
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}{% endblock %}</body></html>

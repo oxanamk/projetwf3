@@ -1,0 +1,130 @@
+{% block js %}
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block footer %}
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<div class="container-fluid" id="bg3">
+		<footer class="container ">
+			<div class="row foot">
+
+				<div id="foot1" class="col-md-3 col-sm-3">
+
+					<h3>Lien d'acces rapide</h3>
+					<h5 id="firstchild">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Acceuil</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Inscription</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Annonce</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Connexion</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>A propos</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Nous aider</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>CGU</b>
+						</a>
+					</h5>
+					<h5>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<a href="#" class="text-muted">
+							<b>Regle de confidentialité</b>
+						</a>
+					</h5>
+				</div>
+
+				<div id="foot2" class="col-md-3 col-sm-3">
+					<h3>Nous contacter:</h3>
+
+					<tr>
+						<th>
+							<label for="name">Nom</label>
+						</th>
+						<td><input type="text" name="nom" id="name"/></td>
+					</tr>
+					<tr>
+						<th>
+							<label for="email">Email</label>
+						</th>
+						<td><input type="text" name="email" id="email"/></td>
+					</tr>
+					<tr>
+						<th>
+							<label for="message">Message</label>
+						</th>
+						<td>
+							<textarea rows="4" cols="30" name="message" id="message"></textarea>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td colspan="2">
+							<input type="submit"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div id="foot3" class="col-md-3 col-sm-3">
+			<h3>Nous trouver:</h3>
+			<h4 class="text-muted">55 ,Rue du refuge<br>telephone: 06.66.666.666
+				<br><br>E-mail: refuge@mail.fr</h4>
+		</div>
+
+
+		<div id="foot4" class="col-md-3 col-sm-3">
+			<h3>Nous suivre:</h3><br>
+			<ul class="social-network social-circle">
+				<li>
+					<a href="#" class="icoTwitter" title="Twitter">
+						<i class="fa fa-twitter"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="icoLinkedin" title="Linkedin">
+						<i class="fa fa-linkedin"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="icoTumblr" title="Tumblr">
+						<i class="fa fa-tumblr"></i>
+					</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+</footer>{% endblock %}

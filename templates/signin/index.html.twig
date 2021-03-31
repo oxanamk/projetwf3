@@ -6,43 +6,64 @@
 	<body id="bgsignin">
 
 
-		<div class="container bg-white d-flex w-50 ">
-			<form method="post" class="justify-content-between ml-5">
-				{% if error %}
-					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-				{% endif %}
+		<main class="container bg-white rounded d-flex  p-3 " id="mainsignin">
+			<section class="" id="sec1signin">
+				<form method="post" class="justify-content-center ">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
 
-				<h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+					<h1 class="h3 mb-5 font-weight-normal">Sign In</h1>
+					<div class="mt-1 mb-4 d-flex justify-content-between">
+						<p class="mr-3">New user ?</p>
+						<a class="ml-5" href="{{ path('signin') }}">Create an account !</a>
 
-				<p>New user ?
-					<a href="{{ path('signin') }}">Create an account !</a>
-				</p>
-
-				<label for="inputEmail">Email</label>
-				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-				<label for="inputPassword">Mot de passe</label>
-				<input type="password" name="password" id="inputPassword" class="form-control" required>
-
-				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-				<div class="checkbox mb-3">
-					<label>
-						<input type="checkbox" name="_remember_me">
-						Se souvenir de moi ?
-					</label>
-				</div>
+					</div>
 
 
-				<button class="btn btn-lg btn-success" type="submit">Se connecter</button>
-			</form>
+					<label for="inputEmail">Email</label>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+					<label for="inputPassword">Mot de passe</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" required>
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+					<div class="checkbox mb-3 mt-3">
+						<label>
+							<input type="checkbox" name="_remember_me">
+							Se souvenir de moi ?
+						</label>
+					</div>
 
 
-			<span class="block">
-				Or sign in with
-			</span>
+					<button class="btn btn-lg btn-success" id="btnsignin" type="submit">Se connecter</button>
+
+					<aside class="text-center" id="divsignin">
+						<hr class="block">
+						<span class="bg-white">
+							Or sign in with
+						</span><br>
+						<div class="mt-4" id="logosignin">
+							<a href="https://wwww.instagram.com">
+								<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+							</a>
+							<a href="https://wwww.facebook.com" class="ml-4 mr-4">
+								<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+							</a>
+							<a href="https://wwww.twitter.com">
+								<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+							</a>
+						</div>
+					</aside>
+				</form>
 
 
-			<img src="{{asset('asset/images/cat.jpg')}}" class="h-50 w-50 justify-content-between ml-5">
-		</div>
-	</body>
-{% endblock %}
+			</section>
+
+
+			<img src="{{asset('asset/images/cat.jpg')}}" class="ml-5" id="imagesignin">
+
+		</main>
+		{% endblock %}
+
+{% include '/layout/footer.html.twig' %}
