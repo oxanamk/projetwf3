@@ -28,7 +28,6 @@ body {
 .active {
     background-color: #7FC386;
     color: aliceblue;
-    border-radius: 15%;
 }
 #bgsignin {
     background: url("../images/wood.webp");
