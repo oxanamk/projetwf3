@@ -13,39 +13,66 @@
 		{% block css %}
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-			<link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
-			<link rel="stylesheet" href="{{ asset('asset/css/stylewip.css') }}">
+			<link rel="stylesheet" href={{ asset('asset/css/style.css') }}>
+			<link rel="stylesheet" href={{ asset('asset/css/stylewip.css') }}>
 
 		{% endblock %}
+		{% block cssEnji %}
+		<style>
+			.navbar-nav{
+				white-space: nowrap;
+			}
+			#logoPaw:hover {
+				background-color: none;
+			}
+			
+		</style>
+		{% endblock %}
 	</head>
-	{% block body %}
-		<body>
+	{% block header %}
 			<header>
 
 				{% set route = app.request.get('_route') %}
-
-				<nav class="nav nav-fill  d-flex justify-content-between align-items-center bg-white mb-5" id="nav">
-					<div class="d-flex align-items-center mr-5">
-						<a class="nav-link  {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">
-							<img class="logosin" src="{{ asset('asset/images/paw.png') }}">
-						</a>
-						<a class="nav-link text-dark h2 font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Adopt'Animal</a>
+				<nav class="navbar p-0 fixed-top navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('signin') }}">
+						<img id="logoPaw" src="{{ asset('asset/images/paw.png') }}" alt="" width="30" height="30" class="ml-3 d-inline-block align-text-top">
+					</a>
+					<span class="navbar-text ml-5 titre">
+						Adopt'Animal
+					</span>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+				  
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('signin') }}">Annonces</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'aPropos' %}active text-white{% endif %}" href="{{ path('signin') }}">À propos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('signin') }}">Nous aider</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'signin' %}active text-white text-white{% endif %}" href="{{ path('signin') }}" title="User">
+								<i class="fa fa-user"></i>
+								Connexion</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'inscription' %}active text-white{% endif %}" href="{{ path('signin') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
+						</li>
+						<hr>
+						<li class="nav-item">
+							<a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('signin') }}">Règles de confidentialité</a>
+						</li>
+						<li class="nav-item">
+							<a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('signin') }}">CGU</a>
+						</li>
+						<img id="navPaw" class="auto-disable" src="{{ asset('asset/images/pawmenu.png') }}" alt="" width="100" height="100" class="ml-auto">
+					  </ul>
 					</div>
-					<div class="d-flex align-items-center ml-5" id="barnav">
-						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Annonces</a>
-						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">À propos</a>
-						<a class="nav-link mr-5 text-dark font-weight-bold {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}">Nous aider</a>
-						<button class=" btn btn-success mr-5 text-dark font-weight-bold icoUser {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}" title="User">
-							<i class="fa fa-user"></i>
-							Connexion</button>
-						<a class="mr-5 text-dark font-weight-bold icoUser {% if route == 'signin' %}active{% endif %}" href="{{ path('signin') }}"></i>Inscription</a>
-					</div>
-				</nav>
+				  </nav>
 			</header>
-
-
-{% block js %}
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-{% endblock %}{% endblock %}</body></html>
+		{% endblock %}
