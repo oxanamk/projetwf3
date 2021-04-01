@@ -34,7 +34,7 @@
 
 				{% set route = app.request.get('_route') %}
 				<nav class="navbar p-0 fixed-top navbar-expand-lg navbar-light bg-light">
-					<a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('signin') }}">
+					<a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('accueil') }}">
 						<img id="logoPaw" src="{{ asset('asset/images/paw.png') }}" alt="" width="30" height="30" class="ml-3 d-inline-block align-text-top">
 					</a>
 					<span class="navbar-text ml-5 titre">
@@ -50,6 +50,9 @@
 							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('signin') }}">Annonces</a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'formAnnonce' %}active text-white{% endif %} {% if route == 'signin' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('signin') }}">Creer Annonce</a>
+						</li>
+						<li class="nav-item">
 							<a class="nav-link mr-5 font-weight-bold {% if route == 'aPropos' %}active text-white{% endif %}" href="{{ path('signin') }}">À propos</a>
 						</li>
 						<li class="nav-item">
@@ -61,7 +64,7 @@
 								Connexion</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold {% if route == 'inscription' %}active text-white{% endif %}" href="{{ path('signin') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'sign_up' %}active text-white{% endif %}" href="{{ path('sign_up') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
 						</li>
 						<hr>
 						<li class="nav-item">

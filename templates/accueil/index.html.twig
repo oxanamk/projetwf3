@@ -1,0 +1,50 @@
+{%  include '/layout/header.html.twig' %}
+
+<body class="bodyAccueil m-0">
+    <main>
+        <section class="sectionImage">
+            <div id="imageAccueil">
+            </div>
+            <section class="" id="rechercheAccueil">
+                <form method="post" class="justify-content-center ">
+    
+                    <h1 class="h3 mb-3 font-weight-bold text-center">Trouvez votre futur animal de compagnie près de chez vous.</h1>
+                    <div class="mt-1 mb-4 d-flex justify-content-between">
+                        <p class="text-center m-auto font-weight-semibold">Découvrez notre séléction d'animaux à adopter..</p>  
+                    </div>
+    
+    
+                    <label for="inputRegion">Région :</label>
+                    <input type="region" name="region" id="inputRegion" class="form-control" required autofocus>
+                    <label for="inputVille">Ville :</label>
+                    <input type="ville" name="ville" id="inputVille" class="form-control" required autofocus>
+                    <label for="selectAnimalType">Type d'animal :</label>
+                    <select id="selectAnimalType" name="AnimalType" class="form-control form-select mt-2" aria-label="Select animal" required autofocus>
+                        <option selected>Choisir votre animal</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <br>   
+                    <button class="form-control btn btn-lg mt-3 text-center" id="btnsignin" type="submit">Rechercher</button>
+                </form>  
+            </section>
+        </section>
+        <section class="mt-5 sectionDerniereAnnonce">
+            <article>
+                <h2 class="h3 font-weight-bold">Nos dernières annonces :</h2>
+                {# {% for annonce in annonces %}
+                {% endfor %} #}
+            </article>
+        </section>
+        <section class="mt-5 sectionCoeur">
+            <article>
+                <h2 class="h3 font-weight-bold">Vos coups de coeurs :</h2>
+                {# {% for coupdecoeur in coupdecoeurs %}
+                {% endfor %} #}
+            </article>
+        </section>
+    </main>
+</body>
+
+{% include '/layout/footer.html.twig' %}
