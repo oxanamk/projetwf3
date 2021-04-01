@@ -10,6 +10,11 @@ body {
 
 /********** Changement Enji *******/
 
+.shadowConnexion {
+    -webkit-box-shadow: 15px 15px 10px #545554;
+            box-shadow: 15px 15px 10px #545554;
+}
+
 .auto-disable {
     display: none;
 }
@@ -28,11 +33,16 @@ body {
 .active {
     background-color: #7FC386;
     color: aliceblue;
-    border-radius: 15%;
 }
 #bgsignin {
     background: url("../images/wood.webp");
     background-size: cover;
+}
+
+
+
+@media screen and (min-width:0px) and (max-width:720px) { 
+    #navPaw { margin-top: 2rem;}
 }
 
 @media screen and (max-width:992px) {
@@ -65,7 +75,7 @@ body {
     .nav-item {
         
         margin-left: 10%;
-        margin-right: 0px;
+        margin-right: 10%;
         margin-top: 5%;
     }
     .navbar div {
@@ -77,8 +87,6 @@ body {
         border-bottom-left-radius: 5%;
         border-bottom-right-radius: 5%;
         width: 50%;
-        margin-left: none;
-        margin-right: 100%;
         height: 35rem;
     }
     #navbarSupportedContent {
@@ -94,6 +102,12 @@ body {
 #btnsignin {
     margin-left: auto;
     margin-right: auto;
+    background-color: #7FC386;
+    color: white;
+
+}
+#btnsignin:hover {
+   background-color: #90d496;;
 }
 
 #imagesignin {
@@ -125,6 +139,10 @@ body {
     }
     #mainsignin {
         width: 85%;
+    }
+
+    #sec1signin {
+        width: 100%;
     }
     #logosignin {
         display: -webkit-box;
