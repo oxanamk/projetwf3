@@ -72,8 +72,15 @@ body main .sectionImage {
 
 /*** Fin Accueil ***/
 
-/*** Signup/Signin ***/
+/*** Signup/Signin/WhoAreYou/MdpOublié ***/
 
+.hrWho {
+    border: 2px solid #e0dfdf;
+        border-radius: 25%;
+        -webkit-box-shadow: 5px 5px #aaaaaa;
+                box-shadow: 5px 5px #aaaaaa;
+        width: 50%
+}
 
 
 .shadowConnexion {
