@@ -72,7 +72,15 @@ body main .sectionImage {
 
 /*** Fin Accueil ***/
 
-/*** Signup/Signin/WhoAreYou/MdpOublié ***/
+/*** Signup/Signin/WhoAreYou/MdpOublié/Navbar ***/
+
+#navAccountImg {
+    border: 1px solid black;
+    padding: 1px;
+}
+#navAccountImg:hover {
+    border: 2px solid #7FC386;
+}
 
 .hrWho {
     border: 2px solid #e0dfdf;
@@ -111,8 +119,6 @@ body main .sectionImage {
     background: url("../images/wood.webp");
     background-size: cover;
 }
-
-/************* Fin Changement Enji ************/
 
 
 @media screen and (min-width:0px) and (max-width:720px) { 
@@ -161,7 +167,7 @@ body main .sectionImage {
         border-bottom-left-radius: 5%;
         border-bottom-right-radius: 5%;
         width: 50%;
-        height: 35rem;
+        height: 40rem;
     }
     #navbarSupportedContent {
         width: 0px;
@@ -170,7 +176,7 @@ body main .sectionImage {
 }
 
 
-/***************** Fin **************/
+/***************** Fin Changement Enji **************/
 
 
 #btnsignin {
