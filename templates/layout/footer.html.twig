@@ -1,130 +1,100 @@
-
 {% block footer %}
-	<div class="container-fluid" id="bg3">
-		<footer class="container ">
-			<div class="row foot">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-				<div id="foot1" class="col-md-3 col-sm-3">
 
-					<h3>Lien d'acces rapide</h3>
-					<h5 id="firstchild">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Acceuil</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Inscription</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Annonce</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Connexion</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>A propos</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Nous aider</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>CGU</b>
-						</a>
-					</h5>
-					<h5>
-						<span class="glyphicon glyphicon-chevron-right"></span>
-						<a href="#" class="text-muted">
-							<b>Regle de confidentialité</b>
-						</a>
-					</h5>
+<footer class="bg-dark" id="bigsecfoot">
+	<section class="textcolor  marginfoot" id="sec1foot">
+		<h3 class="text-center text-white">Lien d'accès rapide</h3>
+		<hr>
+		<nav>
+			<section class="d-flex justify-content-between mb-3" id="navfooter">
+				<div class="">
+					<a href="{{ path('accueil')}}" class="ecart d-block">Accueil</a>
+					<a href="{{ path('about_us')}}" class="d-block">A propos</a>
+					<a href="{{ path('sign_up')}}" class=" ecart d-block">S'inscrire</a>
 				</div>
+				<div class="">
+					<a href="{{ path('signin')}}" class="d-block ">Nous aider</a>
+					<a href="{{ path('announces_page')}}" class="ecart d-block">Annonces</a>
+					<a href="{{ path('signin')}}" class=" d-block ">Se connecter</a>
+				</div>
+			</section>
 
-				<div id="foot2" class="col-md-3 col-sm-3">
-					<h3>Nous contacter:</h3>
+			<hr>
 
-					<tr>
-						<th>
-							<label for="name">Nom</label>
-						</th>
-						<td><input type="text" name="nom" id="name"/></td>
-					</tr>
-					<tr>
-						<th>
-							<label for="email">Email</label>
-						</th>
-						<td><input type="text" name="email" id="email"/></td>
-					</tr>
-					<tr>
-						<th>
-							<label for="message">Message</label>
-						</th>
-						<td>
-							<textarea rows="4" cols="30" name="message" id="message"></textarea>
-						</td>
-					</tr>
+			<div class="d-flex justify-content-around">
+				<a href="{{ path('cgu')}}" class="d-block">Conditions d'utilisations</a>
+				<a href="{{ path('confidentialite')}}" class="d-block">Règles de confidentialite</a>
+			</div>
+		</section>
+	</nav>
 
 
-					<tr>
-						<td colspan="2">
-							<input type="submit"/>
-						</td>
-					</tr>
-				</table>
-			</form>
+	<section class="marginfoot">
+		<h3 class="text-center text-white">Nous suivre</h3>
+		<hr>
+		<div class="marginfoot" id="logosignin">
+			<a href="https://wwww.instagram.com">
+				<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+			</a>
+			<a href="https://wwww.facebook.com" class="ml-4 mr-4">
+				<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+			</a>
+			<a href="https://wwww.twitter.com">
+				<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+			</a>
 		</div>
+	</section>
 
-		<div id="foot3" class="col-md-3 col-sm-3">
-			<h3>Nous trouver:</h3>
-			<h4 class="text-muted">55 ,Rue du refuge<br>telephone: 06.66.666.666
-				<br><br>E-mail: refuge@mail.fr</h4>
+	<section class="marginfoot">
+		<h3 class="text-center text-white">Nous contacter:</h3>
+		<hr>
+		<form method="post" action="" class="marginfoot" >
+
+			<label for="name"></label>
+			<input type="text" name="nom" id="name" placeholder="Nom"/>
+			<br>
+			<label for="email"></label>
+			<input type="text" name="email" id="email" placeholder="Email"/>
+			<br>
+			<label for="message"></label>
+			<textarea  name="message" placeholder="Message"></textarea>
+			<br>
+			<input type="submit"/>
+
+		</form>
+	</section>
+
+
+	<section class="" id="googlefoot">
+		<div class=" text-white " id="margegoogle marginfoot" >
+			<h3 class="text-center">Nous trouver:</h3>
+			<hr>
+			<p>
+				<i class="fa fa-map-marker" aria-hidden="true"></i>
+				55 ,Rue du refuge</p>
+
+			<p>
+				<i class="fa fa-phone" aria-hidden="true"></i> Telephone: 06.66.666.666
+			</p>
+
+			<p>
+				<i class="fa fa-envelope-o" aria-hidden="true"></i> Mail: contact@adoptanimal.com
+			</p>
+
 		</div>
-
-
-		<div id="foot4" class="col-md-3 col-sm-3">
-			<h3>Nous suivre:</h3><br>
-			<ul class="social-network social-circle">
-				<li>
-					<a href="#" class="icoTwitter" title="Twitter">
-						<i class="fa fa-twitter"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="icoLinkedin" title="Linkedin">
-						<i class="fa fa-linkedin"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="icoTumblr" title="Tumblr">
-						<i class="fa fa-tumblr"></i>
-					</a>
-				</li>
-
-			</ul>
+		<div class=" m-auto ">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167825.8412692751!2d2.0124793801500678!3d48.91008082369016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d490e7a5519%3A0x612c420b05dfe223!2sEcole%20Webforce3!5e0!3m2!1sfr!2sfr!4v1617397121631!5m2!1sfr!2sfr" width="160" height="145" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 		</div>
+	</section>
+</footer>
 
-	</div>
-</footer>{% endblock %}
 
 {% block js %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		{% endblock %}</html>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}</html>
+
+{% endblock %}

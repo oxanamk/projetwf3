@@ -389,9 +389,101 @@ body main .sectionImage {
 }
 
 
+/*--------------------------------- footer ------------------------------*/
+
+#navfooter {
+    width: 200px;
+    margin: auto;
+}
+
+#bigsecfoot hr {
+    border-color: grey;
+    width: 100%;
+}
+
+#bigsecfoot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.textcolor a {
+    color: white;
+}
+
+#margegoogle {
+    margin-right: 1em;
+}
+
+#googlefoot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+}
+
+.marginfoot {
+    margin: auto;
+}
+
+@media only screen and (min-width:0px) and (max-width: 750px) {
+    #bigsecfoot {
+        display: block;
+        width: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    #bigsecfoot section {
+        margin-bottom: 2rem;
+    }
+    #googlefoot {
+        display: block;
+    }
+}
+
+@media only screen and (min-width:750px) and (max-width: 1370px) {
+    #bigsecfoot {
+        display: block;
+        width: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    #bigsecfoot section {
+        margin-bottom: 2rem;
+        margin: auto;
+    }
+    #googlefoot {
+        display: block;
+        margin: auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    * {
+        margin: auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .marginfoot {
+        margin: auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+
 /*---------------------------------------------- confidentialité ----------------------------------------*/
 
 .sizefontst {
     font-size: 25px;
     width: 50%;
+}
+
+.bgvert {
+    background-color: #7FC386;
+    width: 100%;
 }
