@@ -8,123 +8,6 @@ body {
 }
 
 
-/********** Changement Enji *******/
-
-/*** Accueil ****/
-
-#rechercheAccueil {
-    margin-right: 5%;
-    width: 30%;
-    border: 1px solid #707070;
-    padding: 3%;
-    border-radius: 5%;
-    position: absolute;
-    z-index: 1;
-    background: white;
-    top: 10%;
-    left: 65%;
-}
-
-.bodyAccueil {
-    margin: none;
-}
-.bodyAccueil main {
-    width: 100%;
-    margin: none;
-}
-
-body main .sectionImage {
-    margin: none;
-}
-
-#imageAccueil {
-    background: url("../images/accueil.jpg") no-repeat center;
-            background-size: 100% 100%;
-            height: 800px;
-            width: 100%;
-}
-
-.sectionDerniereAnnonce {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 100%;
-}
-.sectionCoeur {
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 100%;
-}
-
-@media screen and (max-width:720px) {
-    #rechercheAccueil {
-        width: 70%;
-        left: auto;
-        margin-left: 15%;
-    }
-}
-@media screen and (max-width:992px) {
-    #rechercheAccueil {
-        width: 60%;
-        left: auto;
-        margin-left: 20%;
-    }
-}
-
-/*** Fin Accueil ***/
-
-/*** Signup/Signin/WhoAreYou/MdpOublié/Navbar ***/
-
-#navAccountImg {
-    border: 1px solid black;
-    padding: 1px;
-}
-#navAccountImg:hover {
-    border: 2px solid #7FC386;
-}
-
-.hrWho {
-    border: 2px solid #e0dfdf;
-        border-radius: 25%;
-        -webkit-box-shadow: 5px 5px #aaaaaa;
-                box-shadow: 5px 5px #aaaaaa;
-        width: 50%
-}
-
-
-.shadowConnexion {
-    -webkit-box-shadow: 15px 15px 10px #545554;
-    box-shadow: 15px 15px 10px #545554;
-}
-
-.auto-disable {
-    display: none;
-}
-
-.titre {
-    
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0 auto;
-    
-}
-
-.navbar-nav a:hover {
-    background-color: #7FC386;
-}
-.active {
-    background-color: #7FC386;
-    color: aliceblue;
-}
-#bgsignin {
-    background: url("../images/wood.webp");
-    background-size: cover;
-}
-
-
-@media screen and (min-width:0px) and (max-width:720px) { 
-    #navPaw { margin-top: 2rem;}
-}
-
 @media screen and (max-width:992px) {
 
     .navbar hr {
@@ -232,9 +115,6 @@ body main .sectionImage {
         -ms-flex-pack: center;
         justify-content: center;
     }
-    #nav {
-        width: 100%;
-    }
 }
 
 @media only screen and (min-width:750px) and (max-width: 1370px) {
@@ -248,7 +128,146 @@ body main .sectionImage {
     #sec1signin {
         width: 65%;
     }
+}
+
+
+/* ---------------------------------------------------------------about us--------------------------------------------*/
+
+#bgabout {
+    height: auto;
+    width: 100%;
+}
+
+.imgabout {
+    margin: auto;
+    margin-top: 2rem;
+    width: 90%;
+    border-radius: 20%;
+}
+
+.seccard {
+    width: 380px;
+}
+
+.iconabout {
+    background-color: #7FC386;
+    color: white;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+#secofsecaboutus {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cardheadabout {
+    text-align: center;
+}
+
+@media only screen and (min-width:0px) and (max-width: 1370px) {
+    #secofsecaboutus {
+        display: block;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .seccard {
+        margin: auto;
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (min-width:750px) and (max-width: 1370px) {
+    #secofsecaboutus {
+        display: block;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .seccard {
+        margin: auto;
+        margin-top: 2rem;
+        width: 100%;
+    }
+}
+
+
+/*------------------------------------------------------------ header--------------------------------------------------------------- */
+
+.auto-disable {
+    display: none;
+}
+
+.titre {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.navbar-nav a:hover {
+    background-color: #7FC386;
+}
+
+.active {
+    background-color: #7FC386;
+    color: aliceblue;
+}
+
+@media screen and (max-width:992px) {
     #barnav {
         width: 70%;
+    }
+    #nav {
+        position: fixed;
+        width: 100%;
+    }
+    .navbar hr {
+        border: 2px solid #e0dfdf;
+        border-radius: 25%;
+        -webkit-box-shadow: 5px 5px #aaaaaa;
+        box-shadow: 5px 5px #aaaaaa;
+        width: 50%
+    }
+    .auto-disable {
+        display: unset;
+    }
+    #navPaw {
+        margin-left: auto;
+    }
+    #linkactive1 {
+        width: 100%;
+        padding-right: 5%
+    }
+    #linkactive2 {
+        width: 100%;
+        padding-right: 5%;
+    }
+    .nav-item {
+        margin-left: 10%;
+        margin-right: 0px;
+        margin-top: 5%;
+    }
+    .navbar div {
+        width: 50%;
+    }
+    .navbar ul {
+        background-color: white;
+        border-top: 2px solid #707070;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        width: 50%;
+        margin-left: none;
+        margin-right: 100%;
+        height: 35rem;
+    }
+    #navbarSupportedContent {
+        width: 0px;
+        height: 0px;
     }
 }
