@@ -52,10 +52,10 @@
 							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('signin') }}">Annonces</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'who_are_you' %}active{% endif %} {% if route == 'signin' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('who_are_you') }}">Creer Annonce</a>
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'signin' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold {% if route == 'aPropos' %}active text-white{% endif %}" href="{{ path('signin') }}">À propos</a>
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('signin') }}">Nous aider</a>

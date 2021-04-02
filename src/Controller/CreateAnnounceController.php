@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Announces;
-use App\Form\Type\CreateAnnounceType;
+use App\Entity\Annonces;
+use App\Form\AnnonceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,19 +16,15 @@ class CreateAnnounceController extends AbstractController
      */
     public function create(Request $request): Response {
 
-        $annonce = new Announces();
+        $annonce = new Annonces();
 
-        $form = $this->createForm(CreateAnnounceType::class, $annonce);
+        $form = $this->createForm(AnnonceType::class, $annonce);
 
         $form->handleRequest($request);
 
-        if (!$form->isSubmitted() || !$form->isValid()) {
-            return $this->render('create_announce/index.html.twig', [
-                'formulaire' => $form->createView(),
-            ]);
-        } else {
+        if ($form->isSubmitted() && $form->isValid()) {
             // On utilise les données de notre formulaire
-
+            $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($annonce);
             $entityManager->flush();

@@ -5,6 +5,37 @@
 
 {% block body %}
 
+<style>
+	.qualites_independant,.qualites_aimant,.qualites_espiegle,.qualites_obeissant::before {
+    background-image: url(../images/cage.jpg);
+    content: url(../images/cage.jpg);
+	width: 100px;
+	height: 100px;
+	color: black;
+}
+label {
+
+	padding: 1rem;
+}
+[type=radio] { 
+	
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + label {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + label {
+  outline: 2px solid #f00;
+}
+</style>
+
 	<form class="container mt-5 mb-5">
 		{{ 
 			form(

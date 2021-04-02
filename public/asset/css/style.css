@@ -174,6 +174,20 @@ body main .sectionImage {
     }
 }
 
+.btnsignin {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #7FC386;
+    color: white;
+
+}
+
+/****FormAnnonce*****/
+
+.qualites_independant,.qualites_aimant,.qualites_espiegle,.qualites_obeissant {
+    background-image: url(../images/cage.jpg);
+    background-size: 100px;
+}
 
 /***************** Fin Changement Enji **************/
 
