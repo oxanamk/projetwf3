@@ -1,6 +1,6 @@
 {%  include '/layout/header.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
 	<body id="bgsignin">
@@ -9,39 +9,33 @@
 		<main class="container shadowConnexion bg-white rounded d-flex  p-3 " id="mainsignin">
 			<section class="" id="sec1signin">
 				<form method="post" class="justify-content-center ">
-					{% if error %}
-						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-					{% endif %}
 
-					<h1 class="h3 mb-5 font-weight-normal">Connexion</h1>
+					<h1 class="h3 mb-5 font-weight-normal">Inscription</h1>
 					<div class="mt-1 mb-4 d-flex justify-content-between">
-						<p class="mr-3">Nouvel utilisateur ?</p>
-						<a class="ml-5" href="{{ path('sign_up') }}">Crée un compte !</a>
+						<p class="mr-3">Déjà membre ?</p>
+						<a class="ml-5" href="{{ path('signin') }}">Connexion</a>
 
 					</div>
 
 
-					<label for="inputEmail">Email :</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+					<label for="inputNom">Pseudo :</label>
+					<input type="nom" name="nom" id="inputNom" class="form-control" required autofocus>
+                    <label for="inputEmail">Email :</label>
+					<input type="email" name="email" id="inputEmail" class="form-control" required autofocus>
 					<label for="inputPassword">Mot de passe :</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" required>
+					<label for="inputPasswordComfirm">Vérifier mot de passe :</label>
+					<input type="passwordComfirm" name="passwordComfirm" id="inputPasswordComfirm" class="form-control" required>
 
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-					<div class="checkbox mb-3 mt-3">
-						<label>
-							<input type="checkbox" name="_remember_me">
-							Se souvenir de moi ?
-						</label>
-					</div>
 
-
-					<button class="btn btn-lg text-center" id="btnsignin" type="submit">Se connecter</button>
+					<button class="btn btn-lg mt-3 text-center" id="btnsignin" type="submit">Créer un compte</button>
 
 					<aside class="text-center" id="divsignin">
 						<hr class="block">
 						<span class="bg-white">
-							Connectez-vous avec 
+							Vous inscrire avec : 
 						</span><br>
 						<div class="mt-4" id="logosignin">
 							<a href="https://wwww.instagram.com">
@@ -61,7 +55,7 @@
 			</section>
 
 
-			<img src="{{asset('asset/images/cat.jpg')}}" class="ml-5" id="imagesignin">
+			<img src="{{asset('asset/images/mastif.jpg')}}" class="ml-5" id="imagesignin" >
 
 		</main>
 		{% endblock %}

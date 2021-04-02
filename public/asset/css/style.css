@@ -8,17 +8,69 @@ body {
 }
 
 
-/* -----------------------------------------------------Signin --------------------------------------*/
+@media screen and (max-width:992px) {
 
-#bgsignin {
-    background: url("../images/wood.webp");
-    background-size: cover;
-    width: 100%;
+    .navbar hr {
+        border: 2px solid #e0dfdf;
+        border-radius: 25%;
+        -webkit-box-shadow: 5px 5px #aaaaaa;
+                box-shadow: 5px 5px #aaaaaa;
+        width: 50%
+    }
+    
+    .auto-disable {
+        display: unset;
+    }
+
+    #navPaw {
+        margin-left: auto;
+    }
+
+    #linkactive1 {
+        width: 100%;
+        padding-right: 5%
+    }
+    #linkactive2 {
+        width: 100%;
+        padding-right: 5%;
+    }
+
+    .nav-item {
+        
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5%;
+    }
+    .navbar div {
+        width: 50%;
+    }
+    .navbar ul {
+        background-color:white;
+        border-top: 2px solid #707070;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        width: 50%;
+        height: 40rem;
+    }
+    #navbarSupportedContent {
+        width: 0px;
+        height: 0px;
+    }
 }
+
+
+/***************** Fin Changement Enji **************/
+
 
 #btnsignin {
     margin-left: auto;
     margin-right: auto;
+    background-color: #7FC386;
+    color: white;
+
+}
+#btnsignin:hover {
+   background-color: #90d496;;
 }
 
 #imagesignin {
@@ -43,12 +95,17 @@ body {
     height: 55px;
 }
 
+
 @media only screen and (min-width:0px) and (max-width: 750px) {
     #imagesignin {
         display: none;
     }
     #mainsignin {
         width: 85%;
+    }
+
+    #sec1signin {
+        width: 100%;
     }
     #logosignin {
         display: -webkit-box;
