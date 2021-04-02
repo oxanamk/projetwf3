@@ -1,0 +1,22 @@
+{%  include '/layout/header.html.twig' %}
+
+{% block title %}Annonces
+{% endblock %}
+
+{% block body %}
+
+	<form class="container mt-5 mb-5">
+		{{ 
+			form(
+				formulaire, 
+				{
+					'action': path('create_announce'),
+					'method': 'POST'
+				}
+			) 
+		}}
+		</form>
+	{% endblock %}
+
+    {%  include '/layout/footer.html.twig' %}
+
