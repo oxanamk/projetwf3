@@ -25,13 +25,13 @@ class CreateAnnounceType extends AbstractType
             ->add('qualites', EntityType::class, [
                 'class' => 'App\Entity\Caracteres',
                 'choice_label' => 'nom_caractere',
-                'expanded' => 'true',
-                'multiple'=>'true'])
+                'expanded' => true,
+                'multiple'=>true], )
             ->add('conditions_de_vie', EntityType::class, [
                 'class' => 'App\Entity\ConditionsVie',
                 'choice_label' => 'type',
-                'expanded' => 'true',
-                'multiple'=>'true'
+                'expanded' => true,
+                'multiple'=>true
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier votre annonce'
