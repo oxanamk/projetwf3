@@ -183,6 +183,47 @@ body main .sectionImage {
     color: white;
 }
 
+/******** Footer Enji Changement *********/
+
+footer h3 {
+    font-size: 1rem;
+}
+footer form {
+    font-size: 0.5rem;
+    height: 50%;
+}
+hr {
+    background-color: aliceblue;
+    width: 65%;
+}
+
+.contactFooter input {
+    height: 10%;
+}
+.messageFooter {
+    height: 20%;
+}
+
+@media screen and (max-width:1200px) {
+    #sec1foot {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
+    #googlefoot {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .mapGoogle {
+        margin-top: 1rem;
+    }
+}
+
 
 /***************** Fin Changement Enji **************/
 

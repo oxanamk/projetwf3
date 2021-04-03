@@ -1,92 +1,89 @@
 {% block footer %}
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<footer class="bg-dark" id="bigsecfoot">
-	<section class="textcolor  marginfoot" id="sec1foot">
-		<h3 class="text-center text-white">Lien d'accès rapide</h3>
-		<hr>
-		<nav>
-			<section class="d-flex justify-content-between mb-3" id="navfooter">
-				<div class="">
-					<a href="{{ path('accueil')}}" class="ecart d-block">Accueil</a>
-					<a href="{{ path('about_us')}}" class="d-block">A propos</a>
-					<a href="{{ path('sign_up')}}" class=" ecart d-block">S'inscrire</a>
+<footer class="bg-dark">
+	<section class="textcolor d-flex m-auto" id="sec1foot">
+		<section class="d-block mb-3 m-auto">
+		
+				<h3 class="text-center text-white mt-3">Lien d'accès rapide</h3>
+				<hr>
+
+				<div class="text-center">
+					<a href="{{ path('accueil')}}" class="">Accueil</a>
+					<a href="{{ path('about_us')}}" class="">A propos</a>
+					<a href="{{ path('sign_up')}}" class="">S'inscrire</a>
 				</div>
-				<div class="">
-					<a href="{{ path('signin')}}" class="d-block ">Nous aider</a>
-					<a href="{{ path('announces_page')}}" class="ecart d-block">Annonces</a>
-					<a href="{{ path('signin')}}" class=" d-block ">Se connecter</a>
+
+				<div class="text-center">
+					<a href="{{ path('signin')}}" class="">Nous aider</a>
+					<a href="{{ path('announces_page')}}" class="">Annonces</a>
+					<a href="{{ path('signin')}}" class="">Se connecter</a>
 				</div>
+				
+				<hr>
+				<div class="d-flex text-center">
+					<a href="{{ path('cgu')}}" class="d-block mb-5">Conditions d'utilisations</a>
+					<span class="class text-white ml-3 mr-3 mb-5">|</span>
+					<a href="{{ path('confidentialite')}}" class="d-block mb-5">Règles de confidentialite</a>
+				</div>
+
 			</section>
 
-			<hr>
-
-			<div class="d-flex justify-content-around">
-				<a href="{{ path('cgu')}}" class="d-block">Conditions d'utilisations</a>
-				<a href="{{ path('confidentialite')}}" class="d-block">Règles de confidentialite</a>
-			</div>
+			<section class=" m-auto">
+				<h3 class="text-center text-white">Nous suivre</h3>
+				<hr>
+				<div class="d-flex justify-content-center" id="logosignin">
+					<a href="https://wwww.instagram.com">
+						<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+					</a>
+					<a href="https://wwww.facebook.com" class="ml-4 mr-4">
+						<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+					</a>
+					<a href="https://wwww.twitter.com">
+						<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+					</a>
+				</div>
+			</section>
+			<section class="contactFooter m-auto">
+				<h3 class="text-center text-white mt-3">Nous contacter:</h3>
+				<hr>
+				<form method="post" action="" class=" d-flex justify-content-center flex-column" >
+		
+					<label for="name"></label>
+					<input type="text" name="nom" id="name" placeholder="Nom" class="form-control"/>
+					<br>
+					<label for="email"></label>
+					<input type="text" name="email" id="email" placeholder="Email" class="form-control"/>
+					<br>
+					<label for="message"></label>
+					<textarea  name="message" placeholder="Message" class="form-control messageFooter"></textarea>
+					<br>
+					<button type="submit" class="btnsignup form-control mb-3">Envoyer</button>
+		
+				</form>
+			</section>
+			<section class=" m-auto" id="googlefoot">
+				<div class=" text-white " id="margegoogle marginfoot" >
+					<h3 class="text-center mt-5">Nous trouver:</h3>
+					<hr>
+					<p>
+						<i class="fa fa-map-marker" aria-hidden="true"></i>
+						55 ,Rue du refuge</p>
+		
+					<p>
+						<i class="fa fa-phone" aria-hidden="true"></i> Telephone: 06.66.666.666
+					</p>
+		
+					<p>
+						<i class="fa fa-envelope-o" aria-hidden="true"></i> Mail: contact@adoptanimal.com
+					</p>
+		
+				</div>
+				<div class=" ml-4 pb-3 mapGoogle">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167825.8412692751!2d2.0124793801500678!3d48.91008082369016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d490e7a5519%3A0x612c420b05dfe223!2sEcole%20Webforce3!5e0!3m2!1sfr!2sfr!4v1617397121631!5m2!1sfr!2sfr" width="160" height="245" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				</div>
+			</section>
 		</section>
-	</nav>
-
-
-	<section class="marginfoot">
-		<h3 class="text-center text-white">Nous suivre</h3>
-		<hr>
-		<div class="marginfoot" id="logosignin">
-			<a href="https://wwww.instagram.com">
-				<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
-			</a>
-			<a href="https://wwww.facebook.com" class="ml-4 mr-4">
-				<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
-			</a>
-			<a href="https://wwww.twitter.com">
-				<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
-			</a>
-		</div>
-	</section>
-
-	<section class="marginfoot">
-		<h3 class="text-center text-white">Nous contacter:</h3>
-		<hr>
-		<form method="post" action="" class="marginfoot" >
-
-			<label for="name"></label>
-			<input type="text" name="nom" id="name" placeholder="Nom"/>
-			<br>
-			<label for="email"></label>
-			<input type="text" name="email" id="email" placeholder="Email"/>
-			<br>
-			<label for="message"></label>
-			<textarea  name="message" placeholder="Message"></textarea>
-			<br>
-			<input type="submit"/>
-
-		</form>
-	</section>
-
-
-	<section class="" id="googlefoot">
-		<div class=" text-white " id="margegoogle marginfoot" >
-			<h3 class="text-center">Nous trouver:</h3>
-			<hr>
-			<p>
-				<i class="fa fa-map-marker" aria-hidden="true"></i>
-				55 ,Rue du refuge</p>
-
-			<p>
-				<i class="fa fa-phone" aria-hidden="true"></i> Telephone: 06.66.666.666
-			</p>
-
-			<p>
-				<i class="fa fa-envelope-o" aria-hidden="true"></i> Mail: contact@adoptanimal.com
-			</p>
-
-		</div>
-		<div class=" m-auto ">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167825.8412692751!2d2.0124793801500678!3d48.91008082369016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d490e7a5519%3A0x612c420b05dfe223!2sEcole%20Webforce3!5e0!3m2!1sfr!2sfr!4v1617397121631!5m2!1sfr!2sfr" width="160" height="145" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-		</div>
-	</section>
 </footer>
 
 
