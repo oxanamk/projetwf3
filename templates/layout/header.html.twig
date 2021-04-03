@@ -40,7 +40,7 @@
 					<span class="navbar-text ml-5 titre">
 						Adopt'Animal
 					</span>
-					<a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'signin' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('signin') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
+					<a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('app_login') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					  <span class="navbar-toggler-icon"></span>
 					</button>
@@ -52,16 +52,16 @@
 							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('announces_page') }}">Annonces</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'signin' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('signin') }}">Nous aider</a>
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('app_login') }}">Nous aider</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link mr-5 font-weight-bold {% if route == 'signin' %}active text-white text-white{% endif %}" href="{{ path('signin') }}" title="User">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'app_login' %}active text-white text-white{% endif %}" href="{{ path('app_login') }}" title="User">
 								<i class="fa fa-user"></i>
 								Connexion</a>
 						</li>
@@ -70,10 +70,10 @@
 						</li>
 						<hr>
 						<li class="nav-item">
-							<a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('signin') }}">Règles confidentialité</a>
+							<a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('app_login') }}">Règles confidentialité</a>
 						</li>
 						<li class="nav-item">
-							<a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('signin') }}">CGU</a>
+							<a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('app_login') }}">CGU</a>
 						</li>
 						<img id="navPaw" class="auto-disable" src="{{ asset('asset/images/pawmenu.png') }}" alt="" width="100" height="100" class="ml-auto">
 					  </ul>

@@ -2,19 +2,42 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Form\CreateUserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SignUpController extends AbstractController
 {
     /**
      * @Route("/sign/up", name="sign_up")
      */
-    public function index(): Response
-    {
-        return $this->render('sign_up/index.html.twig', [
-            'controller_name' => 'SignUpController',
-        ]);
+
+    public function create(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response {
+
+        $user = new User();
+
+        $form = $this->createForm(CreateUserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if (!$form->isSubmitted() || !$form->isValid()) {
+            return $this->render('sign_up/index.html.twig', [
+                'form' => $form->createView(),
+            ]);
+        } else {
+
+            $password = $passwordEncoder->encodePassword($user, $user->getPassword());
+					$user->setPassword($password);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->render('accueil/index.html.twig');
+        }
     }
 }

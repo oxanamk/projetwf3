@@ -1,0 +1,76 @@
+{%  include '/layout/header.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+	<body id="bgsignin">
+
+
+		<main class="container shadowConnexion bg-white rounded d-flex  p-3 " id="mainsignin">
+			<section class="" id="sec1signin">
+				<form method="post" class="justify-content-center ">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+					<h1 class="h3 mb-5 font-weight-normal">Connexion</h1>
+					<div class="mt-1 mb-4 d-flex justify-content-between">
+						<p class="mr-3">Nouvel utilisateur ?</p>
+						<a class="ml-5" href="{{ path('sign_up') }}">Crée un compte !</a>
+
+					</div>
+
+
+					<label for="inputEmail">Email :</label>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+					<label for="inputPassword">Mot de passe :</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" required>
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+					<div class="checkbox mb-3 mt-3">
+						<label>
+							<input type="checkbox" name="_remember_me">
+							Se souvenir de moi ?
+						</label>
+					</div>
+
+
+					<button class="btn btn-lg text-center" id="btnsignin" type="submit">Se connecter</button>
+
+					<aside class="text-center" id="divsignin">
+						<hr class="block">
+						<span class="bg-white">
+							Connectez-vous avec 
+						</span><br>
+						<div class="mt-4" id="logosignin">
+							<a href="https://wwww.instagram.com">
+								<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+							</a>
+							<a href="https://wwww.facebook.com" class="ml-4 mr-4">
+								<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+							</a>
+							<a href="https://wwww.twitter.com">
+								<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+							</a>
+						</div>
+					</aside>
+				</form>
+
+
+			</section>
+
+
+			<img src="{{asset('asset/images/cat.jpg')}}" class="ml-5" id="imagesignin">
+
+		</main>
+		{% endblock %}
+
+{% include '/layout/footer.html.twig' %}
+
