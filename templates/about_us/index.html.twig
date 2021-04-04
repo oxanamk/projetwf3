@@ -1,8 +1,9 @@
-{%  include '/layout/header.html.twig' %}
+{%  extends 'base.html.twig' %}
 
 {% block title %}A propos
 {% endblock %}
 
+{% block body %}
 <header class="">
 	<img id="bgabout" src="{{ asset('asset/images/chien-chat.jpg')}}" alt="chien">
 </header>
@@ -53,5 +54,4 @@
 	</section>
 
 </section>
-
-{% include "/layout/footer.html.twig" %}
+{% endblock %}
