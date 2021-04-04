@@ -1,5 +1,6 @@
-{%  include '/layout/header.html.twig' %}
+{%  extends 'base.html.twig' %}
 
+{% block body %}
 <body class="bodyAccueil m-0">
     <main>
         <section class="sectionImage">
@@ -46,5 +47,4 @@
         </section>
     </main>
 </body>
-
-{% include '/layout/footer.html.twig' %}
+{% endblock %}
