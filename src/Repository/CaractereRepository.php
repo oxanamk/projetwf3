@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ConditionsVie;
+use App\Entity\Caractere;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ConditionsVie|null find($id, $lockMode = null, $lockVersion = null)
- * @method ConditionsVie|null findOneBy(array $criteria, array $orderBy = null)
- * @method ConditionsVie[]    findAll()
- * @method ConditionsVie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Caractere|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Caractere|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Caractere[]    findAll()
+ * @method Caractere[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ConditionsVieRepository extends ServiceEntityRepository
+class CaractereRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ConditionsVie::class);
+        parent::__construct($registry, Caractere::class);
     }
 
     // /**
-    //  * @return ConditionsVie[] Returns an array of ConditionsVie objects
+    //  * @return Caractere[] Returns an array of Caractere objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ConditionsVieRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ConditionsVie
+    public function findOneBySomeField($value): ?Caractere
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

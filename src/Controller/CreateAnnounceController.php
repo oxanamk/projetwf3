@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Announces;
-use App\Form\Type\CreateAnnounceType;
+use App\Entity\Announce;
+use App\Form\NewAnnonceType as FormNewAnnonceType;
+use App\Form\Type\NewAnnonceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,9 +17,9 @@ class CreateAnnounceController extends AbstractController
      */
     public function create(Request $request): Response {
 
-        $annonce = new Announces();
+        $annonce = new Announce();
 
-        $form = $this->createForm(CreateAnnounceType::class, $annonce);
+        $form = $this->createForm(FormNewAnnonceType::class, $annonce);
 
         $form->handleRequest($request);
 

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Form\Type;
+namespace App\Form;
 
 use App\Entity\Announce;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -14,8 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
-
-class CreateAnnounceType extends AbstractType
+class NewAnnonceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -91,32 +89,26 @@ class CreateAnnounceType extends AbstractType
             'class' => 'App\Entity\Caractere',
             'choice_label' => 'nom_caractere',
             'expanded' => 'true',
-            'multiple'=>'true'])
-        ->add('lieu_de_vie', EntityType::class, [
+            'multiple'=>'true'
+        ])
+
+            ->add('lieu_de_vie', EntityType::class, [
             'class' => 'App\Entity\LieuxDeVie',
             'choice_label' => 'type',
             'expanded' => 'true',
             'multiple'=>'true'
         ])
-        ->add('description', TextareaType::class, [
-            'attr' => [
-                'label' => 'Description :',
-                'placeholder' => 'Description de votre annonce',
-                'class' => 'form-control',
-                'name' => 'description',
-                'type' => 'textarea',
-                'id' => 'description',
-                'required'
-            ]
-        ])
+
         ->add('submit', SubmitType::class, [
             'attr' => [
                 'label' => 'Publier votre annonce',
                 'class' => 'btn btn-lg mt-3 text-center btnsignin',
+                'method'=>'POST'
             ]
         ])
     ;
 }
+
 
     public function configureOptions(OptionsResolver $resolver)
     {

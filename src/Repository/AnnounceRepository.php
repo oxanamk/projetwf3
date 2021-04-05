@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Announces;
+use App\Entity\Announce;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Announces|null find($id, $lockMode = null, $lockVersion = null)
- * @method Announces|null findOneBy(array $criteria, array $orderBy = null)
- * @method Announces[]    findAll()
- * @method Announces[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Announce|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Announce|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Announce[]    findAll()
+ * @method Announce[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class AnnouncesRepository extends ServiceEntityRepository
+class AnnounceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Announces::class);
+        parent::__construct($registry, Announce::class);
     }
 
     // /**
-    //  * @return Announces[] Returns an array of Announces objects
+    //  * @return Announce[] Returns an array of Announce objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class AnnouncesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Announces
+    public function findOneBySomeField($value): ?Announce
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

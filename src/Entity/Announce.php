@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\AnnouncesRepository;
+use App\Repository\AnnounceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AnnouncesRepository::class)
+ * @ORM\Entity(repositoryClass=AnnounceRepository::class)
  */
-class Announces
+class Announce
 {
     /**
      * @ORM\Id
@@ -20,12 +20,12 @@ class Announces
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=255)
      */
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string", length=255)
      */
     private $nom;
 
@@ -47,17 +47,17 @@ class Announces
     /**
      * @ORM\ManyToMany(targetEntity=Caracteres::class)
      */
-    private $qualites;
+    private $caracteres;
 
     /**
-     * @ORM\ManyToMany(targetEntity=ConditionsVie::class)
+     * @ORM\ManyToMany(targetEntity=conditionsVie::class)
      */
-    private $conditions_de_vie;
+    private $lieu_de_vie;
 
     public function __construct()
     {
-        $this->qualites = new ArrayCollection();
-        $this->conditions_de_vie = new ArrayCollection();
+        $this->caracteres = new ArrayCollection();
+        $this->lieu_de_vie = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,49 +126,49 @@ class Announces
     }
 
     /**
-     * @return Collection|Caracteres[]
+     * @return Collection|Caractere[]
      */
-    public function getQualites(): Collection
+    public function getCaractere(): Collection
     {
-        return $this->qualites;
+        return $this->caracteres;
     }
 
-    public function addQualite(Caracteres $qualite): self
+    public function addCaractere(Caractere $caractere): self
     {
-        if (!$this->qualites->contains($qualite)) {
-            $this->qualites[] = $qualite;
+        if (!$this->caracteres->contains($caractere)) {
+            $this->caracteres[] = $caractere;
         }
 
         return $this;
     }
 
-    public function removeQualite(Caracteres $qualite): self
+    public function removeCaractere(Caractere $caractere): self
     {
-        $this->qualites->removeElement($qualite);
+        $this->caracteres->removeElement($caractere);
 
         return $this;
     }
 
     /**
-     * @return Collection|ConditionsVie[]
+     * @return Collection|LieuxDeVie[]
      */
-    public function getConditionsDeVie(): Collection
+    public function getLieuDeVie(): Collection
     {
-        return $this->conditions_de_vie;
+        return $this->lieu_de_vie;
     }
 
-    public function addConditionsDeVie(ConditionsVie $conditionsDeVie): self
+    public function addLieuDeVie(LieuxDeVie $lieuDeVie): self
     {
-        if (!$this->conditions_de_vie->contains($conditionsDeVie)) {
-            $this->conditions_de_vie[] = $conditionsDeVie;
+        if (!$this->lieu_de_vie->contains($lieuDeVie)) {
+            $this->lieu_de_vie[] = $lieuDeVie;
         }
 
         return $this;
     }
 
-    public function removeConditionsDeVie(ConditionsVie $conditionsDeVie): self
+    public function removeLieuDeVie(LieuxDeVie $lieuDeVie): self
     {
-        $this->conditions_de_vie->removeElement($conditionsDeVie);
+        $this->lieu_de_vie->removeElement($lieuDeVie);
 
         return $this;
     }
