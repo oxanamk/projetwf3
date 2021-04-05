@@ -54,6 +54,16 @@ class Announces
      */
     private $conditions_de_vie;
 
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $tel;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
     public function __construct()
     {
         $this->qualites = new ArrayCollection();
@@ -169,6 +179,30 @@ class Announces
     public function removeConditionsDeVie(ConditionsVie $conditionsDeVie): self
     {
         $this->conditions_de_vie->removeElement($conditionsDeVie);
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
