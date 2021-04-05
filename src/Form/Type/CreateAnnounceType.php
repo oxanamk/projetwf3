@@ -27,7 +27,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Prenom :',
                 'placeholder' => 'Votre prenom',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'prenom',
                 'type' => 'text',
                 'id' => 'prenom',
@@ -38,7 +38,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Nom :',
                 'placeholder' => 'Votre nom',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'nom',
                 'type' => 'text',
                 'id' => 'nom',
@@ -49,7 +49,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Age :',
                 'placeholder' => 'Votre age',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'age',
                 'type' => 'number',
                 'id' => 'age',
@@ -60,13 +60,13 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Image :',
                 'placeholder' => 'Votre image',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'image',
                 'type' => 'image',
                 'id' => 'InputImage',
                 'required'
             ],
-            'label' => 'Image d\'illustration de l\'article',
+            'label' => 'Image d\'illustration de votre annonce',
             'data_class' => null,
             'constraints' => [
                 new File([
@@ -83,7 +83,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Description :',
                 'placeholder' => 'Description de votre annonce',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'description',
                 'type' => 'textarea',
                 'id' => 'description',
@@ -91,11 +91,22 @@ class CreateAnnounceType extends AbstractType
             ]
         ])
         ->add('qualites', EntityType::class, [
+            'label' => 'Choisir vos principales qualités : ',
+            'attr' => [
+                'class' => 'checker text-center font-weight-semibold',
+                'required'
+            ],
             'class' => 'App\Entity\Caracteres',
             'choice_label' => 'nom_caractere',
             'expanded' => 'true',
-            'multiple'=>'true'])
+            'multiple'=>'true']
+            )
         ->add('conditions_de_vie', EntityType::class, [
+            'label' => 'Choisir des conditions de vies idéales  : ',
+            'attr' => [
+                'class' => 'checker text-center font-weight-semibold',
+                'required'
+            ],
             'class' => 'App\Entity\ConditionsVie',
             'choice_label' => 'type',
             'expanded' => 'true',
@@ -105,7 +116,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'Description :',
                 'placeholder' => 'Description de votre annonce',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'description',
                 'type' => 'textarea',
                 'id' => 'description',
@@ -116,7 +127,7 @@ class CreateAnnounceType extends AbstractType
             'attr' => [
                 'label' => 'N°tel :',
                 'placeholder' => 'Votre numéro pour vous contacter',
-                'class' => 'form-control',
+                'class' => 'form-control mt-3',
                 'name' => 'tel',
                 'type' => 'number',
                 'id' => 'tel',
@@ -137,7 +148,7 @@ class CreateAnnounceType extends AbstractType
         ->add('submit', SubmitType::class, [
             'attr' => [
                 'label' => 'Publier votre annonce',
-                'class' => 'btn btn-lg mt-3 text-center btnsignin',
+                'class' => 'btn btn-lg mt-3 text-center btnsignup',
             ]
         ])
     ;
