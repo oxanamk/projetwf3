@@ -8,6 +8,7 @@ use App\Entity\ConditionsVie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -108,6 +109,28 @@ class CreateAnnounceType extends AbstractType
                 'name' => 'description',
                 'type' => 'textarea',
                 'id' => 'description',
+                'required'
+            ]
+        ])
+        ->add('tel', NumberType::class, [
+            'attr' => [
+                'label' => 'N°tel :',
+                'placeholder' => 'Votre numéro pour vous contacter',
+                'class' => 'form-control',
+                'name' => 'tel',
+                'type' => 'number',
+                'id' => 'tel',
+                'required'
+            ]
+        ])
+        ->add('email', EmailType::class, [
+            'attr' => [
+                'label' => 'E-mail :',
+                'placeholder' => 'Votre e-mail',
+                'class' => 'form-control',
+                'name' => 'email',
+                'type' => 'email',
+                'id' => 'email',
                 'required'
             ]
         ])
