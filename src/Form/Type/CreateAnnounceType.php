@@ -8,6 +8,7 @@ use App\Entity\ConditionsVie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -23,6 +24,17 @@ class CreateAnnounceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('titre', TextType::class, [
+            'attr' => [
+                'label' => 'Titre :',
+                'placeholder' => 'Titre de votre annonce',
+                'class' => 'form-control mt-3',
+                'name' => 'titre',
+                'type' => 'text',
+                'id' => 'titre',
+                'required'
+            ]
+        ])
         ->add('prenom', TextType::class, [
             'attr' => [
                 'label' => 'Prenom :',
@@ -55,7 +67,23 @@ class CreateAnnounceType extends AbstractType
                 'id' => 'age',
                 'required'
             ]
-        ] ) 
+        ] )
+        ->add('statut', ChoiceType::class, [
+            'choices' => [
+                'Particulier' => 'Particulier',
+                'Eleveur' => 'Eleveur',
+                'Adoptant' => 'Adoptant',
+            ],
+            'attr' => [
+                'label' => 'Statut :',
+                'placeholder' => 'Votre statut',
+                'class' => 'form-control mt-3',
+                'name' => 'statut',
+                'type' => 'text',
+                'id' => 'statut',
+                'required'
+            ]
+        ]) 
         ->add('image', FileType::class, [
             'attr' => [
                 'label' => 'Image :',
@@ -78,6 +106,9 @@ class CreateAnnounceType extends AbstractType
                     ]
                 ]),
             ]
+        ])
+        ->add('date', DateType::class, [
+            'format' => 'dd/MM/yyyy',
         ])
         ->add('description', TextareaType::class, [
             'attr' => [

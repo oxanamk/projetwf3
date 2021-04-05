@@ -1,21 +1,25 @@
 {%  extends 'base.html.twig' %}
 
-{% block title %}Annonces
+{% block title %}Nos Annonces
 {% endblock %}
 
 {% block body %}
 <section>
 	<h1 class="text-center mt-5">
-		Trouver votre animal de compagnie à adopter</h1>
+		Toute nos annonces !</h1>
 </section>
-
-<section class="d-flex">
-	<aside class="card">
-		<h2 class="card-header">Affiner votre recherche
-		</h2>
-		<div class="card-body"></div>
-	</aside>
-
-	<section></section>
-</section>
+	<div style="display: flex;">
+		{% for a in annonces %}
+			<div style="display: inline-block; width: 30%;">
+				<img src="{{asset('images/' a.image)}}" alt="Image Annonce" style="width:100%">
+				<div class="container">
+					<h4>{{a.prenom}}</h4>
+					<p>Publié le
+						{{a.description}}</p>
+				</div>
+			</div>
+		{% else %}
+			<p>Il n'y a aucun article à afficher.</p>
+		{% endfor %}
+	</div>
 {% endblock %}
