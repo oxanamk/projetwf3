@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,6 +47,26 @@ class Users implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $statut;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Announces::class, mappedBy="user")
+     */
+    private $announce_id;
+
+    public function __construct()
+    {
+        $this->announce_id = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -147,6 +169,60 @@ class Users implements UserInterface
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Announces[]
+     */
+    public function getAnnounceId(): Collection
+    {
+        return $this->announce_id;
+    }
+
+    public function addAnnounceId(Announces $announceId): self
+    {
+        if (!$this->announce_id->contains($announceId)) {
+            $this->announce_id[] = $announceId;
+            $announceId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnnounceId(Announces $announceId): self
+    {
+        if ($this->announce_id->removeElement($announceId)) {
+            // set the owning side to null (unless already changed)
+            if ($announceId->getUser() === $this) {
+                $announceId->setUser(null);
+            }
+        }
 
         return $this;
     }

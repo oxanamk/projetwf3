@@ -19,6 +19,19 @@ class AnnouncesRepository extends ServiceEntityRepository
         parent::__construct($registry, Announces::class);
     }
 
+    public function findByUserAnnonce()
+    {
+    $em = $this->getEntityManager();
+    $query = $em->createQuery('
+            SELECT A  
+            FROM announces
+            JOIN users U ON U.id = A.user_id
+    ');
+
+    $userAnnonce = $query->getResult();
+    return $userAnnonce; 
+    }
+
     // /**
     //  * @return Announces[] Returns an array of Announces objects
     //  */

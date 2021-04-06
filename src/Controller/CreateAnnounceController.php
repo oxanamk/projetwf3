@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Announces;
+use App\Entity\Users;
 use App\Form\Type\CreateAnnounceType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class CreateAnnounceController extends AbstractController
 {
@@ -35,7 +37,7 @@ class CreateAnnounceController extends AbstractController
     /**
      * @Route("/create/announce", name="create_announce")
      */
-    public function creerAnnonce(Request $r): Response {
+    public function creerAnnonce(Request $r, UserInterface $user): Response {
 
         $annonce = new Announces();
 
@@ -47,18 +49,19 @@ class CreateAnnounceController extends AbstractController
         $form->handleRequest($r);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
+            
             return $this->render('create_announce/create_announce.html.twig', [
-                'form' => $form->createView()
-            ]);
+                'form' => $form->createView(),
+                ]);
         } else {
 
             // Je vais déplacer le fichier uploadé
-
+            
             // On récupère l'image
             $image = $form->get('image')->getData();
             // On définit le nom du fichier
             $fileName =  uniqid() . '.' . $image->guessExtension();
-
+            
             try {
                 // On déplace le fichier
                 $image->move($this->getParameter('images'), $fileName);
@@ -66,8 +69,11 @@ class CreateAnnounceController extends AbstractController
                 $form->addError(new FormError('Une erreur est survenue pendant l\'upload du fichier : ' . $ex->getMessage()));
                 throw new Exception('File upload error');
             }
-
+            
+            
+            $user_id = $this->getUser()->getId();
             $annonce->setImage($fileName);
+            $annonce->setUser($user_id);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);

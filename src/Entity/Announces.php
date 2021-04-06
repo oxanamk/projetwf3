@@ -67,6 +67,11 @@ class Announces
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private $titre;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $statut;
 
     /**
@@ -75,9 +80,9 @@ class Announces
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="announce_id")
      */
-    private $titre;
+    private $user;
 
     public function __construct()
     {
@@ -222,6 +227,18 @@ class Announces
         return $this;
     }
 
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -246,14 +263,14 @@ class Announces
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getUser(): ?Users
     {
-        return $this->titre;
+        return $this->user;
     }
 
-    public function setTitre(string $titre): self
+    public function setUser(?Users $user): self
     {
-        $this->titre = $titre;
+        $this->user = $user;
 
         return $this;
     }
