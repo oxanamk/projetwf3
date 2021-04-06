@@ -3,9 +3,6 @@
 namespace App\Form\Type;
 
 use App\Entity\Announces;
-use App\Entity\Caracteres;
-use App\Entity\ConditionsVie;
-use App\Entity\Users;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -38,6 +35,26 @@ class CreateAnnounceType extends AbstractType
                 'id' => 'titre',
                 'required'
             ]
+        ])
+        ->add('espece', EntityType::class,[
+            'label' => 'Choisir l\'animal  ',
+            'attr' => [
+                'class' => 'checker text-center font-weight-semibold',
+                'required'
+            ],
+            'class' => 'App\Entity\Espece',
+            'choice_label' => 'espece',
+            'expanded' => 'true',
+        ])       
+        ->add('couleur', EntityType::class,[
+            'label' => 'Choisir la couleur  ',
+            'attr' => [
+                'class' => 'checker text-center font-weight-semibold',
+                'required'
+            ],
+            'class' => 'App\Entity\Couleur',
+            'choice_label' => 'couleur',
+            'expanded' => 'true',
         ])
         ->add('prenom', TextType::class, [
             'attr' => [
@@ -147,17 +164,7 @@ class CreateAnnounceType extends AbstractType
             'expanded' => 'true',
             'multiple'=>'true'
         ])
-        ->add('description', TextareaType::class, [
-            'attr' => [
-                'label' => 'Description :',
-                'placeholder' => 'Description de votre annonce',
-                'class' => 'form-control mt-3',
-                'name' => 'description',
-                'type' => 'textarea',
-                'id' => 'description',
-                'required'
-            ]
-        ])
+      
         ->add('tel', NumberType::class, [
             'attr' => [
                 'label' => 'N°tel :',

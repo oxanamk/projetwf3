@@ -84,6 +84,19 @@ class Announces
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Espece::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $espece;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Couleur::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $couleur;
+
+   
     public function __construct()
     {
         $this->qualites = new ArrayCollection();
@@ -271,6 +284,30 @@ class Announces
     public function setUser(?Users $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getEspece(): ?Espece
+    {
+        return $this->espece;
+    }
+
+    public function setEspece(?Espece $espece): self
+    {
+        $this->espece = $espece;
+
+        return $this;
+    }
+
+    public function getCouleur(): ?Couleur
+    {
+        return $this->couleur;
+    }
+
+    public function setCouleur(?Couleur $couleur): self
+    {
+        $this->couleur = $couleur;
 
         return $this;
     }
