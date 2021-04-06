@@ -11,7 +11,7 @@
 	<div style="display: flex;">
 		{% for a in annonces %}
 			<div style="display: inline-block; width: 30%;">
-				<img src="{{asset('images/' a.image)}}" alt="Image Annonce" style="width:100%">
+				<img src="{{asset('asset/images/' ~ a.image )}}" alt="Image Annonce" style="width:100%">
 				<div class="container">
 					<h4>{{a.prenom}}</h4>
 					<p>Publié le
