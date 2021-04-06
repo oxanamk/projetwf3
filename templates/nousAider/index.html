@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../nousAider/css/style.css">
+    <title>Nous aider</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!--La navbar, à récupérer sur Git-->
+            </ul>
+        </nav>
+    </header>
+        <img src="multimedia/nsAider2.jpg" alt="Femme et chien complice face à la nature">
+        <h1>Nous Aider</h1>
+        <br><br>
+        <h2>Promouvoir nos actions</h2>
+        <p>Parler de nous à vos proches, mettre en avant nos actions, partager nos actualités, nous suivre
+            sur les réseaux sociaux sont aussi des moyens de nous aider en nous rendant plus visibles et en faisant 
+            connaître nos actions près de chez vous.
+            Suivez et paragez nos actualités sur Facebook
+            Abonnez-vous et retweetez-nous sur Twitter
+        </p>
+        <br>
+        <h2>Faire un don financier</h2>
+        <p>Votre aide est indispensable au bon fonctionnement de notre site.
+            Depuis Mars 2021, notre site a recueilli 35% de son budget annuel grâce à vos dons et aux publicités contenu sur notre site :
+        </p>
+        <div class="jauge">
+            <svg>
+                <circle fill="rgb(249, 229, 206)" r="30%" cx="50%" cy="50%" />
+            </svg>
+            <div class="nbr">7 858€ sur 22 450€</div>
+        </div>
+        <br>
+        <h2>Devenir refuge d'or</h2>
+        <p>A l'échelle local, nous travaillons avec de nombreux partenaires : des particuliers, des éleveurs
+            et centres qui nous font confiance et nous soutiennent dans nos projets mais aussi d'autres associations et organismes 
+            avec qui nous travaillons main dans la main.
+            Pour devenir refuge d'or, l est nécessaire de répondre à des critères de bien-être pour les futurs animaux 
+            adoptés.</p>
+            <p>Devenir refuge d'or, permet d'avoir une reconnaissance sur notre site, un gage de confiance pour les particuliers
+            qui parcourent notre site. Pour plus d'informations, merci de nous contacter : 
+        </p>
+        <br>
+        <form methode="post" action="traitement.php">
+            <p class="titre">Nous Contacter</p>
+            <fieldset id="nousContacter">
+                <p id="civilite"><label></label>
+                    <input type="radio" name="civilite" value="M."/>M.
+                    <input type="radio" name="civilite" value="Mme."/>Mme.
+                </p>
+            <label>Nom :</label>
+                <input type="text" name="nom" size="30"/><br>
+            <label>Adresse :</label>
+                <input type="text" name="adresse" size="30"/><br>
+            <label>CP :</label>
+                <input type="text" name="adresse2" size="30"/><br>
+            <label>Ville :</label>
+                <input type="text" name="ville" size="30"/><br>
+            <p class="titre">Votre Message</p>
+            <fieldset id="message">
+            <textarea name="comments" rows="5" cols="40"></textarea>
+            </fieldset>
+            <p id="buttons">
+                <input type="submit" value="Envoyer"/>
+            </p>
+        </form>
+
+
+
+    <footer>
+        <!--Footer à récupérer-->
+    </footer>
+</body>
+</html>

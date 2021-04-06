@@ -1,0 +1,103 @@
+/* Général */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background: url('../image/adoptanimal.jpg') no-repeat center center;
+    background-size: cover;
+}
+a{
+    color: white;
+}
+a:hover{
+    color: #7fc386;
+}
+
+/* Header */
+h1{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    float: left;
+
+}
+header nav{
+    float: right;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-top: 10px;
+}
+nav ul li a{             /* Nav */
+    float: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+
+/* Main */
+
+h2{
+    
+    font-weight: normal;
+    text-align: center;
+    padding: 150px 0 40px 0;
+    margin-bottom: 20px;
+    color: white;
+}
+h3{
+    
+    font-weight: normal;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    color: white;
+    width: 400px;
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+}
+
+.button{
+    display: block;
+    width: 150px;
+    height: 50px;  
+    background: #7fc386;
+    color: #fff;
+    font-size:20px;
+    margin: 0 auto;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 30px
+}
+
+/* Responsive */
+@media only screen and (max-width: 750px){
+    .icon{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(0, 255, 157);
+        position:relative;
+        display:block;
+        float: left;
+        width: 35px;
+        height: 50px;
+        cursor: pointer;
+
+        {
+            content:'';
+            position: absolute;
+            display: block;
+            width: 16px;
+            height: 0;
+            @include box-shadow(0 10px 0 1px #fff, 0 16px 0 1px #7fc386, 0 22px 0 1px #7fc386);
+        }
+}
+
+
+
+}
