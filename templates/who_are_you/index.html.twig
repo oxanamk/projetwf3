@@ -1,0 +1,37 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}VousEtes?{% endblock %}
+
+{% block body %}
+	<body id="bgsignin">
+
+
+		<main class="container shadowConnexion bg-white rounded d-flex  p-3 " id="mainsignin">
+			<section class="" id="sec1signin">
+				<form method="post" class="justify-content-center m-5 ">
+
+					<h1 class="h3 mb-5 font-weight-semibold text-center">Vous êtes :</h1>
+
+					<h3 class="h5 mb-5 font-weight-normal text-center">Particulier ou Eleveur ?</h3>
+					
+					<hr class="hrWho mb-5">
+					
+					<input type="radio" id="particulier" name="statut" value="particulier" class="mb-3 ml-5" required>
+					<label for="particulier">Particulier</label><br>
+					<input type="radio" name="statut" id="eleveur" value="eleveur" class="ml-5 mt-3 mb-5" required>
+					<label for="eleveur">Eleveur</label>
+					
+					<hr class="hrWho mb-2">
+					
+					<h3 class="h5 mt-5 mb-5 font-weight-normal text-center">Adoptant ou Animal ?</h3>
+					<div class="d-flex justify-content-between">
+					<button class="mr-5 btn btn-lg text-center" id="btnsignin" type="submit">Adoptant</button>
+					<button class="btn btn-lg text-center" id="btnsignin" type="submit">Animal</button>
+					</div>	
+				</form>
+
+
+			</section>
+
+		</main>
+		{% endblock %}

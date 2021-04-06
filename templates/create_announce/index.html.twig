@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Annonces
+{% endblock %}
+
+{% block body %}
+	<div id="imageCreerAnnonce">
+	</div>
+
+	<form class="container mt-5 mb-5">
+		{{ 
+			form(
+				form, 
+				{
+					'action': path('create_announce'),
+					'method': 'POST'
+				}
+			) 
+		}}
+		</form>
+	{% endblock %}
+

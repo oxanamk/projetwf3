@@ -1,0 +1,65 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<style>
+	.btnsignup {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #7FC386;
+    color: white;
+}
+</style>
+
+	<body id="bgsignin">
+
+
+		<main class="container shadowConnexion bg-white rounded d-flex  p-3 " id="mainsignin">
+			<section class="" id="sec1signin">
+				<form method="post" class="justify-content-center ">
+
+					<h1 class="h3 mb-5 font-weight-normal">Inscription</h1>
+					<div class="mt-1 mb-4 d-flex justify-content-between">
+						<p class="mr-3">Déjà membre ?</p>
+						<a class="ml-5" href="{{ path('signin') }}">Connexion</a>
+
+					</div>
+
+					{{ 
+						form(
+							form, 
+							{
+								'action': path('sign_up'),
+								'method': 'POST'
+							}
+						) 
+					}}
+
+					<aside class="text-center" id="divsignin">
+						<hr class="block">
+						<span class="bg-white">
+							Vous inscrire avec : 
+						</span><br>
+						<div class="mt-4" id="logosignin">
+							<a href="https://wwww.instagram.com">
+								<img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+							</a>
+							<a href="https://wwww.facebook.com" class="ml-4 mr-4">
+								<img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+							</a>
+							<a href="https://wwww.twitter.com">
+								<img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+							</a>
+						</div>
+					</aside>
+				</form>
+
+
+			</section>
+
+
+			<img src="{{asset('asset/images/mastif.jpg')}}" class="ml-5" id="imagesignin" >
+
+		</main>
+		{% endblock %}

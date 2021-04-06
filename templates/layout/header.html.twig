@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}
+				adopte un animal
+			{% endblock %}
+		</title>
+		{% block css %}
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+			<link rel="stylesheet" href={{ asset('asset/css/style.css') }}>
+			<link rel="stylesheet" href={{ asset('asset/css/stylewip.css') }}>
+
+		{% endblock %}
+		{% block cssEnji %}
+		<style>
+			.navbar-nav{
+				white-space: nowrap;
+			}
+			#logoPaw:hover {
+				background-color: none;
+			}
+			
+		</style>
+		{% endblock %}
+	</head>
+	{% block header %}
+			<header>
+
+				{% set route = app.request.get('_route') %}
+				<nav class="navbar p-0 fixed-top navbar-expand-lg navbar-light bg-light">
+					<a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('accueil') }}">
+						<img id="logoPaw" src="{{ asset('asset/images/paw.png') }}" alt="" width="30" height="30" class="ml-3 d-inline-block align-text-top">
+					</a>
+					<span class="navbar-text ml-5 titre">
+						Adopt'Animal
+					</span>
+					<a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('app_login') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
+					{% if is_granted('ROLE_ADMIN') %}
+						<a class="nav-link mr-5 font-weight-bold hover{% if route == 'admin' %}active text-white{% endif %}" href="{{ path('admin_utilisateurs') }}">Admin</a>
+					{% endif %}
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					
+					
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  <ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('announces_page') }}">Annonces</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('app_login') }}">Nous aider</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'app_login' %}active text-white text-white{% endif %}" href="{{ path('app_login') }}" title="User">
+								<i class="fa fa-user"></i>
+								Connexion</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mr-5 font-weight-bold {% if route == 'sign_up' %}active text-white{% endif %}" href="{{ path('sign_up') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
+						</li>
+						<hr>
+						<li class="nav-item">
+							<a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('app_login') }}">Règles confidentialité</a>
+						</li>
+						<li class="nav-item">
+							<a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('app_login') }}">CGU</a>
+						</li>
+						<img id="navPaw" class="auto-disable" src="{{ asset('asset/images/pawmenu.png') }}" alt="" width="100" height="100" class="ml-auto">
+					  </ul>
+					</div>
+				  </nav>
+			</header>
+		{% endblock %}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome !{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href={{ asset('asset/css/style.css') }}>
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    {% block cssEnji %}
+    <style>
+        .navbar-nav{
+            white-space: nowrap;
+        }
+        #logoPaw:hover {
+            background-color: none;
+        }
+        
+    </style>
+    {% endblock %}
+</head>
+{% block header %}
+        <header>
+
+            {% set route = app.request.get('_route') %}
+            <nav class="navbar p-0 fixed-top navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('accueil') }}">
+                    <img id="logoPaw" src="{{ asset('asset/images/paw.png') }}" alt="" width="30" height="30" class="ml-3 d-inline-block align-text-top">
+                </a>
+                <span class="navbar-text ml-5 titre">
+                    Adopt'Animal
+                </span>
+                <a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('app_login') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="nav-link mr-5 font-weight-bold hover{% if route == 'admin' %}active text-white{% endif %}" href="{{ path('admin_utilisateurs') }}">Admin</a>
+                {% endif %}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('announces_page') }}">Annonces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('app_login') }}">Nous aider</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'app_login' %}active text-white text-white{% endif %}" href="{{ path('app_login') }}" title="User">
+                            <i class="fa fa-user"></i>
+                            Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'sign_up' %}active text-white{% endif %}" href="{{ path('sign_up') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
+                    </li>
+                    <hr>
+                    <li class="nav-item">
+                        <a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('app_login') }}">Règles confidentialité</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('app_login') }}">CGU</a>
+                    </li>
+                    <img id="navPaw" class="auto-disable" src="{{ asset('asset/images/pawmenu.png') }}" alt="" width="100" height="100" class="ml-auto">
+                  </ul>
+                </div>
+              </nav>
+        </header>
+    {% endblock %}
+
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        {% block footer %}
+        <footer class="bg-dark">
+            <section class="textcolor d-flex m-auto" id="sec1foot">
+                <section class="d-block mb-3 m-auto">
+                
+                        <h3 class="text-center text-white mt-3">Lien d'accès rapide</h3>
+                        <hr>
+        
+                        <div class="text-center">
+                            <a href="{{ path('accueil')}}" class="">Accueil</a>
+                            <a href="{{ path('about_us')}}" class="">A propos</a>
+                            <a href="{{ path('sign_up')}}" class="">S'inscrire</a>
+                        </div>
+        
+                        <div class="text-center">
+                            <a href="{{ path('signin')}}" class="">Nous aider</a>
+                            <a href="{{ path('announces_page')}}" class="">Annonces</a>
+                            <a href="{{ path('signin')}}" class="">Se connecter</a>
+                        </div>
+                        
+                        <hr>
+                        <div class="d-flex text-center">
+                            <a href="{{ path('cgu')}}" class="d-block mb-5">Conditions d'utilisations</a>
+                            <span class="class text-white ml-3 mr-3 mb-5">|</span>
+                            <a href="{{ path('confidentialite')}}" class="d-block mb-5">Règles de confidentialite</a>
+                        </div>
+        
+                    </section>
+        
+                    <section class=" m-auto">
+                        <h3 class="text-center text-white">Nous suivre</h3>
+                        <hr>
+                        <div class="d-flex justify-content-center" id="logosignin">
+                            <a href="https://wwww.instagram.com">
+                                <img class="rounded-circle logosin" alt="logo instagram" src={{ asset('asset/images/insta.webp') }}>
+                            </a>
+                            <a href="https://wwww.facebook.com" class="ml-4 mr-4">
+                                <img class=" rounded-circle logosin" alt="logo facebook" src={{ asset('asset/images/fb.png') }}>
+                            </a>
+                            <a href="https://wwww.twitter.com">
+                                <img class=" rounded-circle logosin" alt="logo twitter" src={{ asset('asset/images/twitter.webp') }}>
+                            </a>
+                        </div>
+                    </section>
+                    <section class="contactFooter m-auto">
+                        <h3 class="text-center text-white mt-3">Nous contacter:</h3>
+                        <hr>
+                        <form method="post" action="" class=" d-flex justify-content-center flex-column" >
+                
+                            <label for="name"></label>
+                            <input type="text" name="nom" id="name" placeholder="Nom" class="form-control"/>
+                            <br>
+                            <label for="email"></label>
+                            <input type="text" name="email" id="email" placeholder="Email" class="form-control"/>
+                            <br>
+                            <label for="message"></label>
+                            <textarea  name="message" placeholder="Message" class="form-control messageFooter"></textarea>
+                            <br>
+                            <button type="submit" class="btnsignup form-control mb-3">Envoyer</button>
+                
+                        </form>
+                    </section>
+                    <section class=" m-auto" id="googlefoot">
+                        <div class=" text-white " id="margegoogle marginfoot" >
+                            <h3 class="text-center mt-5">Nous trouver:</h3>
+                            <hr>
+                            <p>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                55 ,Rue du refuge</p>
+                
+                            <p>
+                                <i class="fa fa-phone" aria-hidden="true"></i> Telephone: 06.66.666.666
+                            </p>
+                
+                            <p>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i> Mail: contact@adoptanimal.com
+                            </p>
+                
+                        </div>
+                        <div class=" ml-4 pb-3 mapGoogle">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167825.8412692751!2d2.0124793801500678!3d48.91008082369016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66d490e7a5519%3A0x612c420b05dfe223!2sEcole%20Webforce3!5e0!3m2!1sfr!2sfr!4v1617397121631!5m2!1sfr!2sfr" width="160" height="245" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </section>
+                </section>
+        </footer>
+        {% endblock %}
+    </footer>
+</html>

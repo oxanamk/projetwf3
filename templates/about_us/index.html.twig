@@ -1,0 +1,65 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}A propos
+{% endblock %}
+
+{% block body %}
+<header class="">
+	<img id="bgabout" src="{{ asset('asset/images/chien-chat.jpg')}}" alt="chien">
+</header>
+
+<section class="bigsecabout">
+	<h1 class="text-center mt-3 mb-3">
+		Nos engagements
+	</h1>
+	<section id="secofsecaboutus">
+		<section class="card seccard">
+			<div class="card-header cardheadabout">
+				<i class="fa fa-anchor iconabout" aria-hidden="true"></i>
+				<h2 class="text-center">Des partenaires sérieux</h2>
+				<p class="text-center">Qui que vous soyez, il est important d’utiliser les bons outils pour trouver votre compagnon ou celui qui le deviendra.</p>
+			</div>
+			<img class="card-img imgabout" src="{{ asset('asset/images/serieux.jpg')}}" alt="une balade avec une femme et un chien">
+			<div class="card-body text-center">
+				<p> En effet, il arrive souvent un point où vous aurez besoin d'un tiers de confiance pour s'occuper ou trouvez votre compagnon, et le digital aide dans cette dynamique. Notre sites d'adoption a vu le jour pour aider les gens en recherche de compagnon. Mais comment on fonctionne, et comment être sûr de trouver un partenaire qui saura vous accompagner au mieux ? Découvrez dès maintenant nos annonces.</p>
+			</div>
+
+		</section>
+
+		<section class="card seccard">
+			<div class="card-header cardheadabout">
+				<i class="fa fa-flag iconabout" aria-hidden="true"></i>
+				<h2 class="text-center">La protection animale</h2>
+				<p class="text-center">Les propriétaires des animaux de compagnie ont des devoirs et des responsabilités envers eux. Il est essentiel de connaître les règles à respecter pour leur bien-être et leur santé avant même d'acquérir un animal de compagnie.</p>
+			</div>
+			<img class="card-img imgabout" src="{{ asset('asset/images/cage.jpg')}}" alt="chien en cage">
+			<div class="card-body text-center">
+				<p>Être au fait de tous ces éléments permet de bien anticiper l'arrivée de l'animal et d'éviter tout désagrément financier et/ou environnemental pouvant conduire au mauvais choix qu'est l'abandon.
+					Notre avons creer ce site afin de proteger et eviter au maximul les abandons.
+					Avec une espérance de vie en moyenne de 11 ans chez le chien et de 16 ans chez le chat, il est important de prendre conscience que l’acquisition d’un animal de compagnie est un engagement sur plusieurs années.</p>
+			</div>
+
+		</section>
+
+		<section class="card seccard">
+			<div class="card-header cardheadabout">
+				<i class="fa fa-lock iconabout" aria-hidden="true"></i>
+				<h2 class="text-center">La protection de vos données</h2>
+				<p class="text-center">Que faisons nous pour protéger vos données personnelles ?</p>
+			</div>
+			<img class="card-img imgabout" src="{{ asset('asset/images/ordi.jpg')}}" alt="protection des données">
+			<div class="card-body text-center">
+				<p>Nous attachons une haute importance à la protection de vos données personnelles et nous faisons en sorte que vous vous sentiez en sécurité lors de vos visites.
+
+					Dans un souhait de totale transparence nous souhaitons vous informer sur les données que nous collectons, sur la manière dont ces informations sont utilisées et sur vos possibilités de vous opposer au traitement de ces données. Nous souhaitons également vous informer sur les dispositifs mis en place pour vous garantir une sécurité maximum.
+					
+					Notre site est totalement sécurisé : dès la page d’accueil vous naviguez en toute sécurité avec une adresse https. Le https est un "protocole de transfert hypertexte sécurisé". Il garantit la confidentialité et l'intégrité des données envoyées par l'utilisateur.
+					
+					Vos mot de passe sont cryptée.Et les donnée que vous nous fournissez sont uniquement utilisée pour la connexion a notre site.</p>
+			</div>
+
+		</section>
+	</section>
+
+</section>
+{% endblock %}
