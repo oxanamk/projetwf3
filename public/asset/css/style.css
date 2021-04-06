@@ -7,11 +7,17 @@ body {
     width: 100%;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
 
 /********** Changement Enji *******/
 
-/*** Creer Annonce ****/
 
+/*** Creer Annonce ****/
 
 
 /*** Accueil ****/
@@ -186,15 +192,18 @@ body main .sectionImage {
     color: white;
 }
 
+
 /******** Footer Enji Changement *********/
 
 footer h3 {
     font-size: 1rem;
 }
+
 footer form {
     font-size: 0.5rem;
     height: 50%;
 }
+
 hr {
     background-color: aliceblue;
     width: 65%;
@@ -203,6 +212,7 @@ hr {
 .contactFooter input {
     height: 10%;
 }
+
 .messageFooter {
     height: 20%;
 }
@@ -214,8 +224,8 @@ hr {
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
     }
     #googlefoot {
         display: -webkit-box;
@@ -226,6 +236,7 @@ hr {
         margin-top: 1rem;
     }
 }
+
 
 /***************** Fin Changement Enji **************/
 

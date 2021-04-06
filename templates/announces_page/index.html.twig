@@ -4,22 +4,42 @@
 {% endblock %}
 
 {% block body %}
-<section>
-	<h1 class="text-center mt-5">
-		Toute nos annonces !</h1>
-</section>
-	<div style="display: flex;">
-		{% for a in annonces %}
-			<div style="display: inline-block; width: 30%;">
-				<img src="{{asset('images/' a.image)}}" alt="Image Annonce" style="width:100%">
-				<div class="container">
-					<h4>{{a.prenom}}</h4>
-					<p>Publié le
-						{{a.description}}</p>
-				</div>
+	<header class="p-4">
+		<section>
+			<h1 class="text-center mt-5">
+				Toutes nos annonces !</h1>
+		</section>
+	</header>
+
+	<main class="d-flex">
+		<aside>
+			<div class="card">
+				<h1 class="card-header">Affiner la catégorie</h1>
+				<section class="card-body">
+				{{ form(form)}}
+				</section>
+
 			</div>
-		{% else %}
-			<p>Il n'y a aucun article à afficher.</p>
-		{% endfor %}
-	</div>
-{% endblock %}
+		</aside>
+
+		<section class="container">
+			<div class="grid">
+				{% for a in annonces %}
+					<div class="card">
+						<img src="{{asset('asset/images/' ~ a.image)}}" alt="image annonce" class="card-image-top m-auto" style="max-height:280px; max-width:300px;">
+						<div class="card-body">
+							<h4 class="card-title">{{a.prenom}}</h4>
+							<div class="card-title">
+								<p class="text text-muted">{{a.description}}
+								</p>
+							</div>
+						</div>
+					</div>
+
+				{% endfor %}
+			</div>
+		</section>
+	</main>
+
+
+	{% endblock %}
