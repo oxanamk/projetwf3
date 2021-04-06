@@ -5,11 +5,14 @@ namespace App\Form\Type;
 use App\Entity\Announces;
 use App\Entity\Caracteres;
 use App\Entity\ConditionsVie;
+use App\Entity\Users;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -20,9 +23,23 @@ use Symfony\Component\Validator\Constraints\File;
 
 class CreateAnnounceType extends AbstractType
 {
+
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
+        ->add('titre', TextType::class, [
+            'attr' => [
+                'label' => 'Titre :',
+                'placeholder' => 'Titre de votre annonce',
+                'class' => 'form-control mt-3',
+                'name' => 'titre',
+                'type' => 'text',
+                'id' => 'titre',
+                'required'
+            ]
+        ])
         ->add('prenom', TextType::class, [
             'attr' => [
                 'label' => 'Prenom :',
@@ -55,7 +72,23 @@ class CreateAnnounceType extends AbstractType
                 'id' => 'age',
                 'required'
             ]
-        ] ) 
+        ] )
+        ->add('statut', ChoiceType::class, [
+            'choices' => [
+                'Particulier' => 'Particulier',
+                'Eleveur' => 'Eleveur',
+                'Adoptant' => 'Adoptant',
+            ],
+            'attr' => [
+                'label' => 'Statut :',
+                'placeholder' => 'Votre statut',
+                'class' => 'form-control mt-3',
+                'name' => 'statut',
+                'type' => 'text',
+                'id' => 'statut',
+                'required'
+            ]
+        ]) 
         ->add('image', FileType::class, [
             'attr' => [
                 'label' => 'Image :',
@@ -78,6 +111,9 @@ class CreateAnnounceType extends AbstractType
                     ]
                 ]),
             ]
+        ])
+        ->add('date', DateType::class, [
+            'format' => 'dd/MM/yyyy',
         ])
         ->add('description', TextareaType::class, [
             'attr' => [
