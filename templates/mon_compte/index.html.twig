@@ -15,9 +15,9 @@
                 <h2 class="text-center mt-5">Mon profil:</h2>
                 <div class="d-flex flex-column">
                     <img src="{{ asset('asset/images/' ~ userImage )}}" alt="" width="90%" height="450" class="m-auto">
-                    <div class="d-flex justify-content-between">
+                    <div class="text-center">
                     <h3>{{userPseudo}}</h3>
-                    <h4>{{userStatut}}</h4>
+                    {% if userStatut == 'Particulier' %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="150" height="30" class="m-auto"> {% elseif userStatut == 'Eleveur' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="150" height="30" class="m-auto"> {% endif %}
                     </div>
                     <p class="text-center">{{userDescription}}</p>
                 </div>
