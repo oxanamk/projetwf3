@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style>
+
+    #btnstart {
+        width: 100%;
+        font-weight: bold;
+        border: 3px solid white;
+        color: rgb(41, 41, 41);
+        background-color: rgba(255, 255, 255, 0.616);
+        border-color: rgba(124, 124, 124, 0.445);
+        text-shadow: none;
+    }
+    #btnstart:hover {
+        transition: 1s;
+        border-color: rgb(78, 78, 78);
+        background-color: rgba(66, 66, 66, 0.616);
+        color: rgb(255, 255, 255);
+        text-shadow: none;
+    }
+    #startPage {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background: url('asset/images/adoptAnimal.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 40rem;
+}
+ #startPage footer {
+     display: none;
+ }
+
+ .startText {
+     position: absolute;
+     top: 40%;
+     left: 40%;
+     text-shadow: black 2px 4px 3px;
+ }
+ .startText hr {
+        color: white;
+        width: 85%;
+        height: 1px;
+        box-shadow: black 2px 4px 3px ;
+     text-shadow: black 2px 4px 3px;;
+ }
+
+ @media screen and  (max-width:1200px) {
+     #startPage {
+         background-size: 150vh;
+     }
+     .startText {
+         position: absolute;
+         top: 40%;
+         left: 30%;
+         right: 30%;
+     }
+     
+ }
+</style>
+
+
+<section id="imageStart text-white d-flex justify-content-center flex-column">
+<div class="startText">
+    <h2 class="text-white text-center text-bold mb-4 h1">Adopt'Animal</h2>
+    <hr>
+    <h3 class="text-white text-center h4">Le premier site de rencontre<br>Entre Hommes & Animaux !</h3>
+    <hr>
+    <a href="{{ path('accueil') }}" id="btnstart" class="text-center text-bold btn btn-lg mt-3 text-center btnsignup"><i class="fa fa-paw mr-3" aria-hidden="true"></i>Commencer</a>
+</div>
+</section>
+{% endblock %}

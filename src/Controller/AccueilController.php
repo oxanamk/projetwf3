@@ -9,6 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     /**
+     * @Route("/", name="start")
+     */
+    public function startPage(): Response
+    {
+        return $this->render('accueil/start.html.twig', [
+            'controller_name' => 'AccueilController',
+        ]);
+    }
+    /**
      * @Route("/accueil", name="accueil")
      */
     public function index(): Response
