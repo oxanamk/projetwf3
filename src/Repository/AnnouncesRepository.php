@@ -32,6 +32,26 @@ class AnnouncesRepository extends ServiceEntityRepository
     return $userAnnonce; 
     }
 
+    public function search( $espece=null, $couleur=null, $lieux=null, $caractere=null)
+    {
+        $query= $this->createQueryBuilder('a') ;
+           
+            if($espece != null){
+                $query->join('a.espece', 'e');
+                $query->andWhere('e.id = :id')
+                ->setParameter('id', $espece);
+
+            };
+    }
+
+    public function countByDate(){
+        $query=$this->getEntityManager()->createQuery("
+            SELECT SUBSTRING(a.date, 1, 10) as date, COUNT(a) as count FROM App\Entity\Announces a GROUP BY date
+        ");
+        return $query->getResult();
+    }
+
+
     // /**
     //  * @return Announces[] Returns an array of Announces objects
     //  */
