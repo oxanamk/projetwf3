@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\AnnouncesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use App\Entity\Users;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
