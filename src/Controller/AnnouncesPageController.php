@@ -18,21 +18,23 @@ class AnnouncesPageController extends AbstractController
     public function afficherTousLesArticle(AnnouncesRepository $annoncesRepo, Request $request): Response
     {
 
-        
+
 
         $form = $this->createForm(FilterAnnounceType::class, null, array(
             'action' => $this->generateUrl('announces_page'),
             'method' => 'POST',
         ));
 
-        $form->handleRequest($request);
+        $search = $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $annonces = $annoncesRepo->search(
-                $form->get('espece')->getData()
+                $search->get('espece')->getData(),
+                $search->get('couleur')->getData(),
+                $search->get('statut')->getData(),
             );
             return $this->render('announces_page/index.html.twig', [
-                'form' => $form->createView(),
+                'form' => $search->createView(),
                 'annonces' => $annonces
             ]);
         } else {
@@ -41,7 +43,6 @@ class AnnouncesPageController extends AbstractController
             return $this->render('announces_page/index.html.twig', [
                 'form' => $form->createView(),
                 'annonces' => $annonces
-
             ]);
         }
         return new Response('faux');

@@ -79,8 +79,7 @@ class CreateAnnounceController extends AbstractController
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirect('announce');
+            return $this->redirect('../accueil');
         }
     }
 }
-

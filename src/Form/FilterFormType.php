@@ -38,22 +38,15 @@ class FilterAnnounceType extends AbstractType
             ])
 
 
-            ->add('statut', ChoiceType::class, [
-                'choices' => [
-                    'Particulier' => 'Particulier',
-                    'Eleveur' => 'Eleveur',
-                    'Adoptant' => 'Adoptant',
-                ],
-                'required'=> false,
+            ->add('statut', EntityType::class, [
+                'label' => 'Choisir le statut  ',
                 'attr' => [
-                    'label' => 'Statut :',
-                    'placeholder' => 'Votre statut',
-                    'class' => 'form-control mt-3',
-                    'name' => 'statut',
-                    'type' => 'text',
-                    'id' => 'statut',
-                ]
-            ])
+                    'class' => 'checker text-center font-weight-semibold',
+                ],
+                'class' => 'App\Entity\Statut',
+                'choice_label' => 'statut',
+                'required'=> false
+           ])
 
             ->add('date', DateType::class, [
                 'format' => 'dd/MM/yyyy',
