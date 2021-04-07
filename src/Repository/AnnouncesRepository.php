@@ -21,31 +21,44 @@ class AnnouncesRepository extends ServiceEntityRepository
 
     public function findByUserAnnonce()
     {
-    $em = $this->getEntityManager();
-    $query = $em->createQuery('
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('
             SELECT A  
             FROM announces
             JOIN users U ON U.id = A.user_id
     ');
 
-    $userAnnonce = $query->getResult();
-    return $userAnnonce; 
+        $userAnnonce = $query->getResult();
+        return $userAnnonce;
     }
 
-    public function search( $espece=null, $couleur=null, $lieux=null, $caractere=null)
+    public function search($espece = null, $couleur = null, $statut = null, $caractere = null)
     {
-        $query= $this->createQueryBuilder('a') ;
-           
-            if($espece != null){
-                $query->join('a.espece', 'e');
-                $query->andWhere('e.id = :id')
-                ->setParameter('id', $espece);
+        $query = $this->createQueryBuilder('a');
 
-            };
+        if ($espece != null) {
+            $query->leftjoin('a.espece', 'e');
+            $query->andWhere('e.id = :id')
+                ->setParameter('id', $espece);
+        }
+        if ($couleur != null) {
+            $query->leftjoin('a.couleur', 'co');
+            $query->andWhere('co.id = :id')
+                ->setParameter('id', $couleur);
+        }
+        if ($statut != null) {
+            $query->leftjoin('a.statut', 's');
+            $query->andWhere('s.id = :id')
+                ->setParameter('id', $statut);
+        }
+
+       
+        return $query->getQuery()->getResult();
     }
 
-    public function countByDate(){
-        $query=$this->getEntityManager()->createQuery("
+    public function countByDate()
+    {
+        $query = $this->getEntityManager()->createQuery("
             SELECT SUBSTRING(a.date, 1, 10) as date, COUNT(a) as count FROM App\Entity\Announces a GROUP BY date
         ");
         return $query->getResult();

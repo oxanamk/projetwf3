@@ -70,10 +70,7 @@ class Announces
      */
     private $titre;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $statut;
+
 
     /**
      * @ORM\Column(type="date")
@@ -96,6 +93,12 @@ class Announces
      * @ORM\JoinColumn(nullable=false)
      */
     private $couleur;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Statut::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $statut;
 
    
     public function __construct()
@@ -253,17 +256,7 @@ class Announces
         return $this;
     }
 
-    public function getStatut(): ?string
-    {
-        return $this->statut;
-    }
 
-    public function setStatut(string $statut): self
-    {
-        $this->statut = $statut;
-
-        return $this;
-    }
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -309,6 +302,18 @@ class Announces
     public function setCouleur(?Couleur $couleur): self
     {
         $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getStatut(): ?Statut
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(?Statut $statut): self
+    {
+        $this->statut = $statut;
 
         return $this;
     }

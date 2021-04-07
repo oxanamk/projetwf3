@@ -83,4 +83,3 @@ class CreateAnnounceController extends AbstractController
         }
     }
 }
-

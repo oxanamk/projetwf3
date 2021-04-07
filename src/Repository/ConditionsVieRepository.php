@@ -25,10 +25,10 @@ class ConditionsVieRepository extends ServiceEntityRepository
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('cond')
+            ->andWhere('cond.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+            ->orderBy('cond.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -39,8 +39,8 @@ class ConditionsVieRepository extends ServiceEntityRepository
     /*
     public function findOneBySomeField($value): ?ConditionsVie
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+        return $this->createQueryBuilder('cond')
+            ->andWhere('cond.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

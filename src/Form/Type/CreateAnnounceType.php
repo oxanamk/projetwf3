@@ -89,22 +89,15 @@ class CreateAnnounceType extends AbstractType
                 'required'
             ]
         ] )
-        ->add('statut', ChoiceType::class, [
-            'choices' => [
-                'Particulier' => 'Particulier',
-                'Eleveur' => 'Eleveur',
-                'Adoptant' => 'Adoptant',
-            ],
+        ->add('statut', EntityType::class, [
+            'label' => 'Choisir le statut  ',
             'attr' => [
-                'label' => 'Statut :',
-                'placeholder' => 'Votre statut',
-                'class' => 'form-control mt-3',
-                'name' => 'statut',
-                'type' => 'text',
-                'id' => 'statut',
-                'required'
-            ]
-        ]) 
+                'class' => 'checker text-center font-weight-semibold',
+            ],
+            'class' => 'App\Entity\Statut',
+            'choice_label' => 'Statut',
+            'required'=> false
+       ]) 
         ->add('image', FileType::class, [
             'attr' => [
                 'label' => 'Image :',
