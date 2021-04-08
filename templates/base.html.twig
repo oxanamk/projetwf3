@@ -25,6 +25,11 @@
         #logoPaw:hover {
             background-color: none;
         }
+        @media screen and (min-width:0px) and (max-width:720px) {
+        .adoptAnimal {
+            display: none;
+        }
+    }
         
     </style>
     {% endblock %}
@@ -37,10 +42,12 @@
                 <a class="navbar-brand  {% if route == 'accueil' %}accueil{% endif %}" href="{{ path('accueil') }}">
                     <img id="logoPaw" src="{{ asset('asset/images/paw.png') }}" alt="" width="30" height="30" class="ml-3 d-inline-block align-text-top">
                 </a>
-                <span class="navbar-text ml-5 titre">
+                <span class="navbar-text ml-5 titre adoptAnimal">
                     Adopt'Animal
                 </span>
+                {% if is_granted('ROLE_ADMIN') %}
                 <a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('redirection') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
+                {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="nav-link mr-5 font-weight-bold hover{% if route == 'admin' %}active text-white{% endif %}" href="{{ path('admin_utilisateurs') }}">Admin</a>
                 {% endif %}
@@ -54,9 +61,11 @@
                     <li class="nav-item">
                         <a class="nav-link mr-5 font-weight-bold hover{% if route == 'annonces' %}active text-white{% endif %}" href="{{ path('announces_page') }}">Annonces</a>
                     </li>
+                    {% if is_granted('ROLE_USER') %}
                     <li class="nav-item">
                         <a class="nav-link mr-5 font-weight-bold hover{% if route == 'create_announce' %}active{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('create_announce') }}">Creer Annonce</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
                     </li>
@@ -104,7 +113,7 @@
                         </div>
         
                         <div class="text-center">
-                            <a href="{{ path('signin')}}" class="">Nous aider</a>
+                            <a href="{{ path('nous_aider')}}" class="">Nous aider</a>
                             <a href="{{ path('announces_page')}}" class="">Annonces</a>
                             <a href="{{ path('signin')}}" class="">Se connecter</a>
                         </div>
