@@ -8,6 +8,7 @@ use App\Repository\AnnouncesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AnnouncesPageController extends AbstractController
@@ -32,6 +33,8 @@ class AnnouncesPageController extends AbstractController
                 $search->get('espece')->getData(),
                 $search->get('couleur')->getData(),
                 $search->get('statut')->getData(),
+                $search->get('qualites')->getData(),
+                $search->get('conditions_de_vie')->getData(),
             );
             return $this->render('announces_page/index.html.twig', [
                 'form' => $search->createView(),
@@ -48,15 +51,19 @@ class AnnouncesPageController extends AbstractController
         return new Response('faux');
     }
 
+    
     /**
-     * @Route("/announces/page/voir_annonce/{id}", name="voir_annonce")
+     * @Route("/annonce/{id}", name="annonce")
      */
+    public function afficherUneAnnonce( Announces $id): Response {
+        $repository = $this->getDoctrine()->getRepository(Announces::class);
+        $annonce = $repository->find($id);
+
+        if (empty($annonce)) throw new NotFoundHttpException();
 
 
-    public function voirAnnonce(): Response
-    {
-        return $this->render('accueil/start.html.twig', [
-            'controller_name' => 'AccueilController',
+        return $this->render('announces_page/annonce.html.twig', [
+            'annonces' => $annonce,
         ]);
     }
 }

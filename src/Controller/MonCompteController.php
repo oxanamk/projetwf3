@@ -145,8 +145,7 @@ class MonCompteController extends AbstractController
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirect('redirection');
-        }
+            return $this->redirect('/annonce/' . $annonce->getId());        }
     }
     /**
      * @Route("/supprimer-une-annonce/{id}", name="supprimer_annonce")
