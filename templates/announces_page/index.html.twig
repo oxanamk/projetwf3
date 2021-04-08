@@ -95,7 +95,7 @@
 						<li class="list-group-item">Prenom : {{a.prenom}}</li>
 					  </ul>
 					  <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
-					  <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('voir_annonce', {'id': a.id}) }}">Voir l'annonce</a></button>
+					  <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('annonce', {'id': a.id}) }}">Voir l'annonce</a></button>
 					</div>
 				</div>
 				{% endfor %}

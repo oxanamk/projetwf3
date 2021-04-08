@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{annonces.prenom}}
+{% endblock %}
+
+{% block body %}
+<div class="container" >
+	<h1>{{ annonces.titre }}</h1>
+	<img src="{{ asset('asset/images/' ~ annonces.image) }}" alt="image annonce" style="max-width:520px; max-height:480px; margin-top:1rem;">
+	<p>Publié le
+		{{annonces.date|date('d/m/Y')}}</p>
+	<p>{{annonces.description}}</p>
+</div>
+<div>
+	<p>{{}}</p>	
+</div>
+{% endblock %}
