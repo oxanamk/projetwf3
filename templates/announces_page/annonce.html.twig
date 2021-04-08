@@ -4,14 +4,56 @@
 {% endblock %}
 
 {% block body %}
-<div class="container" >
-	<h1>{{ annonces.titre }}</h1>
-	<img src="{{ asset('asset/images/' ~ annonces.image) }}" alt="image annonce" style="max-width:520px; max-height:480px; margin-top:1rem;">
-	<p>Publié le
-		{{annonces.date|date('d/m/Y')}}</p>
-	<p>{{annonces.description}}</p>
-</div>
-<div>
-	<p>{{}}</p>	
-</div>
+
+<style>
+    .mesAnnonces {
+        width: 20%;
+    }
+    body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+    main {
+        background-color: white;
+
+    }
+</style>
+
+<h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">{{ annonces.titre|length > 20 ? annonces.description|slice(0, 20) ~ '...' : annonces.titre  }}</h2>
+<body class="bodyAccueil m-0">
+    <main class="container rounded pt-2 pb-5 pl-5 pr-5 mt-5">
+        <section class="container mt-5">
+            <article>
+                <div class="d-flex flex-column">
+                    <img src="{{ asset('asset/images/' ~ annonces.image) }}" alt="" width="100%" height="450" class="m-auto">
+                    <div class="text-center">
+                    <h3 class="mt-4">{{annonces.prenom}}</h3>
+					<div class="list-group-item">{% if annonces.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="20%" height="80%" class="m-auto"> {% elseif annonces.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="20%" height="80%" class="m-auto"> {% elseif annnonces.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</div>
+
+                    <p class="text-center mt-5">{{annonces.description}}</p>
+					<p>Publié le
+						{{annonces.date|date('d/m/Y')}}</p>
+                </div>
+            </article>
+        </section>
+        <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Me contacter :</h2>
+		<section class="m-auto">
+			<hr>
+			<form method="post" action="{{ path('accueil')}}" class=" d-flex justify-content-center flex-column" >
+	
+				<label for="name"></label>
+				<input type="text" name="nom" id="name" placeholder="Nom" class="form-control"/>
+				<br>
+				<label for="email"></label>
+				<input type="text" name="email" id="email" placeholder="Email" class="form-control"/>
+				<br>
+				<label for="message"></label>
+				<textarea  name="message" placeholder="Message" class="form-control messageFooter"></textarea>
+				<br>
+				<button type="submit" class="btnsignup form-control mb-3">Envoyer</button>
+	
+			</form>
+		</section>
+    </main>
+</body>
 {% endblock %}
+
