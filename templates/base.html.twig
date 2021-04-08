@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome !{% endblock %}</title>
+        {% block title %}<title>Welcome !</title>{% endblock %}
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -33,7 +33,6 @@
         
     </style>
     {% endblock %}
-</head>
 {% block header %}
         <header>
 
@@ -96,9 +95,10 @@
     {% block body %}
     <body id="startPage">
        
-    </body>{% endblock %}
-    <footer>
-        {% block footer %}
+    </body>
+    {% endblock %}
+
+    {% block footer %}
         <footer class="bg-dark">
             <section class="textcolor d-flex m-auto" id="sec1foot">
                 <section class="d-block mb-3 m-auto">
@@ -183,6 +183,5 @@
                     </section>
                 </section>
         </footer>
-        {% endblock %}
-    </footer>
-</html>
+    </html>
+    {% endblock %}
