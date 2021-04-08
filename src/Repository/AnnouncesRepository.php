@@ -32,7 +32,7 @@ class AnnouncesRepository extends ServiceEntityRepository
         return $userAnnonce;
     }
 
-    public function search($espece = null, $couleur = null, $statut = null, $caractere = null)
+    public function search($espece = null, $couleur = null, $statut = null, $departement = null)
     {
         $query = $this->createQueryBuilder('a');
 
@@ -46,13 +46,14 @@ class AnnouncesRepository extends ServiceEntityRepository
             $query->andWhere('co.id = :id')
                 ->setParameter('id', $couleur);
         }
-        if ($statut != null) {
-            $query->leftjoin('a.statut', 's');
-            $query->andWhere('s.id = :id')
-                ->setParameter('id', $statut);
-        }
 
-       
+        if ($statut != null) {
+            $query->andWhere('a.statut = :id')
+                ->setParameter('a.statut', $statut);
+        }
+        
+    
+
         return $query->getQuery()->getResult();
     }
 
