@@ -6,41 +6,55 @@
     .mesAnnonces {
         width: 20%;
     }
+    body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+    main {
+        background-color: white;
+
+    }
 </style>
 
+<h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mon profil :</h2>
 <body class="bodyAccueil m-0">
-    <main>
+    <main class="container rounded pt-2 pb-5 pl-5 pr-5 mt-5">
         <section class="container mt-5">
             <article>
-                <h2 class="text-center mt-5">Mon profil:</h2>
                 <div class="d-flex flex-column">
-                    <img src="{{ asset('asset/images/' ~ userImage )}}" alt="" width="90%" height="450" class="m-auto">
+                    <img src="{{ asset('asset/images/' ~ userImage )}}" alt="" width="100%" height="450" class="m-auto">
                     <div class="text-center">
-                    <h3>{{userPseudo}}</h3>
+                    <h3 class="mt-4">{{userPseudo}}</h3>
                     {% if userStatut == 'Particulier' %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="150" height="30" class="m-auto"> {% elseif userStatut == 'Eleveur' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="150" height="30" class="m-auto"> {% endif %}
                     </div>
-                    <p class="text-center">{{userDescription}}</p>
+                    <p class="text-center mt-5">{{userDescription}}</p>
                 </div>
             </article>
         </section>
+        <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mes annonces :</h2>
         <section class="container mt-5 mesAnnonces">
             <article>
-                <h2 class="text-center mt-5">Mes annonces :</h2>
-                <div class="d-flex flex-column m-auto">
+                <div class="d-flex justify-centent-center m-auto">
                     {% for a in annonce %}
-                    <img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="400" height="200" class="m-auto">
-                    <h3 class="text-center">{{a.titre}}</h3>
-                    <span class="text-center font-weight-semibold">{{a.prenom}}</span>
-                    <span class="text-center font-weight-semibold">{{a.nom}}</span>
-                    <p class="text-center">{{a.description}}</p>
-                    <button class="btn btn-lg mt-3 text-center btnsignup"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier mon annonce</a></button>
+                    <div class="card mt-5 m-auto" style="min-width: 300px; max-width: 300px;">
+                        <img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="100%" height="100%" class="m-auto">
+                        <div class="card-body">
+                          <h5 class="card-title">{{a.titre}}</h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
+                            <li class="list-group-item">Prenom : {{a.prenom}}</li>
+                          </ul>
+                          <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
+                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier</a></button>
+                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('supprimer_annonce', {'id': a.id}) }}">Supprimer</a></button>
+                        </div>
+                    </div>
                     {% endfor %}
                 </div>
             </article>
         </section>
+        <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Editer mon profil</h2>
         <section class="container sectionFormAnnonce">
             <div class="container mt-5">
-                <h2 class="text-center mt-5">Editer mon profil</h2>
         
                 {{ form_start(form, { 'action': path('mon_compte') }) }}
           

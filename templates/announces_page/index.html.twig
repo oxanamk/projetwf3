@@ -4,17 +4,78 @@
 {% endblock %}
 
 {% block body %}
+
+<style>
+	#filter_announce_qualites input, #filter_announce_conditions_de_vie input,  #filter_announce_couleur input, #filter_announce_espece input {
+		position: fixed;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#filter_announce_qualites input:checked + label, #filter_announce_conditions_de_vie input:checked + label, #filter_announce_couleur input:checked + label, #filter_announce_espece input:checked + label  {
+		border: 3px solid #7FC386;
+	}
+
+	#filter_announce_qualites label, #filter_announce_conditions_de_vie label,  #filter_announce_couleur label, #filter_announce_espece label {
+		margin: 0.1rem;
+		padding: 1rem;
+		border: 1px solid #707070;
+		color: #707070;
+		cursor: pointer;
+	}
+	label {
+		margin-top: 1rem;
+		font-weight:600;
+		color: #707070;
+	}
+	#filter_announce_submit {
+		display: flex;
+		justify-content: center;
+		width: 30%;
+		margin-bottom: 100px;
+	}
+
+	.card button {
+	width: 100%;
+	background:#7FC386;
+	color: white;
+	text-decoration: none;
+	}
+
+	.card button a {
+		text-decoration: none;
+		color: white;
+	}
+
+	@media screen and (max-width: 1365px) {
+		main {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.grid {
+			display: flex !important;
+			flex-direction: column;
+			width: 50%;
+		}
+		header {
+			margin-top: 2rem;
+		}
+		
+	}
+
+</style>
 	<header class="p-4">
 		<section>
-			<h1 class="text-center mt-5">
+			<h1 class="text-center mt-3 mb-5 text-white p-2" style="background-color: #7FC386;">
 				Toutes nos annonces !</h1>
 		</section>
 	</header>
 
 	<main class="d-flex">
 		<aside id="cardfilter">
-			<div class="card">
-				<h1 class="card-header">Affiner la catégorie</h1>
+			<div class="card container" style="max-width: 70%; min-width: 50%">
+				<h3 class="card-header text-center text-white pt-2 pb-2" style="background-color: #3f3f3f;">Affiner la catégorie</h3>
 				<section class="card-body">
 					{{ form(form)}}
 					</section>
@@ -24,21 +85,20 @@
 
 		<section class="container" id="annoncepage">
 			<div class="grid">
-		{% for a in annonces %}
-                    <div class="card mt-5" style="min-width: 300px; max-width: 300px;">
-                        <img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="100%" height="100%" class="m-auto">
-                        <div class="card-body">
-                          <h5 class="card-title">{{a.titre}}</h5>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
-                            <li class="list-group-item">Prenom : {{a.prenom}}</li>
-                          </ul>
-                          <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
-                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier</a></button>
-                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('supprimer_annonce', {'id': a.id}) }}">Supprimer</a></button>
-                        </div>
-                    </div>
-                    {% endfor %}
+				{% for a in annonces %}
+				<div class="card mt-5 ml-3 mr-3 rounded" style="min-width: 300px; max-width: 300px;">
+					<img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="100%" height="80%" class="m-auto">
+					<div class="card-body">
+					  <h5 class="card-title">{{a.titre}}</h5>
+					  <ul class="list-group list-group-flush">
+						<li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
+						<li class="list-group-item">Prenom : {{a.prenom}}</li>
+					  </ul>
+					  <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
+					  <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('annonce', {'id': a.id}) }}">Voir l'annonce</a></button>
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</section>	
 	</main>

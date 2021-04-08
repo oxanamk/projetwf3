@@ -3,14 +3,21 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
+<style>
+    body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+</style>
+<main>
+<section class="container mt-5 bg-dark text-white p-5 rounded">
     <h1>Liste des utilisateurs</h1>
-    <table>
+    <table class="table text-white">
         <thead>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Rôles</th>
-            <th>Articles</th>
-            <th>Actions</th>
+            <th class="col">ID</th>
+            <th class="col">Email</th>
+            <th class="col">Rôles</th>
+            <th class="col">Articles</th>
+            <th class="col">Actions</th>
         </thead>
         <tbody>
             {# On boucle sur les utilisateurs #}
@@ -38,4 +45,6 @@
             {% endfor %}
         </tbody>
     </table>
+</section>
+
 {% endblock %}

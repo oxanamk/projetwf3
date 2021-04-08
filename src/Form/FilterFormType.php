@@ -22,7 +22,7 @@ class FilterAnnounceType extends AbstractType
             ->add('espece', EntityType::class, [
                 'label' => 'Choisir l\'animal  ',
                 'attr' => [
-                    'class' => 'checker text-center font-weight-semibold',
+                    'class' => 'checker text-center font-weight-semibold m-2',
                     'id' => 'filter_announce_espece'
                 ],
                 'class' => 'App\Entity\Espece',
@@ -33,7 +33,7 @@ class FilterAnnounceType extends AbstractType
             ->add('couleur', EntityType::class, [
                 'label' => 'Choisir la couleur  ',
                 'attr' => [
-                    'class' => 'checker text-center font-weight-semibold',
+                    'class' => 'checker text-center font-weight-semibold m-2',
                     'id' => 'filter_announce_couleur'
                 ],
                 'class' => 'App\Entity\Couleur',
@@ -46,7 +46,7 @@ class FilterAnnounceType extends AbstractType
             ->add('statut', EntityType::class, [
                 'label' => 'Choisir le statut  ',
                 'attr' => [
-                    'class' => 'checker text-center font-weight-semibold',
+                    'class' => 'checker text-center font-weight-semibold m-2',
                 ],
                 'class' => 'App\Entity\Statut',
                 'choice_label' => 'statut',
@@ -62,7 +62,7 @@ class FilterAnnounceType extends AbstractType
                 'attr' => [
                     'label' => 'Région :',
                     'placeholder' => 'Régions',
-                    'class' => 'form-control',
+                    'class' => 'form-control p-3 m-2',
                     'name' => 'region',
                     'type' => 'region',
                     'id' => 'region',
@@ -76,7 +76,7 @@ class FilterAnnounceType extends AbstractType
                 'attr' => [
                     'label' => 'Département :',
                     'placeholder' => 'Département',
-                    'class' => 'form-control',
+                    'class' => 'form-control p-3 m-2',
                     'name' => 'departement',
                     'type' => 'departement',
                     'id' => 'departement',
@@ -90,7 +90,7 @@ class FilterAnnounceType extends AbstractType
                 'attr' => [
                     'label' => 'Ville :',
                     'placeholder' => 'Ville',
-                    'class' => 'form-control',
+                    'class' => 'form-control p-3 m-2',
                     'name' => 'ville',
                     'type' => 'ville',
                     'id' => 'ville',
@@ -107,7 +107,7 @@ class FilterAnnounceType extends AbstractType
                 [
                     'label' => 'Choisir vos principales qualités : ',
                     'attr' => [
-                        'class' => 'checker text-center font-weight-semibold d-block',
+                        'class' => 'checker text-center font-weight-semibold d-block p-3 m-2',
                         'id' => 'filter_announce_qualites'
                     ],
                     'class' => 'App\Entity\Caracteres',
@@ -121,7 +121,7 @@ class FilterAnnounceType extends AbstractType
             ->add('conditions_de_vie', EntityType::class, [
                 'label' => 'Choisir des conditions de vies idéales  : ',
                 'attr' => [
-                    'class' => 'checker text-center font-weight-semibold d-block',
+                    'class' => 'checker text-center font-weight-semibold d-block p-3 m-2',
                     'id' => 'filter_announce_conditions_de_vie'
                 ],
                 'class' => 'App\Entity\ConditionsVie',
@@ -136,7 +136,7 @@ class FilterAnnounceType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'label' => 'Publier votre annonce',
-                    'class' => 'btn btn-lg mt-3 text-center btnsignup',
+                    'class' => 'btn btn-lg mt-3 text-center btnsignup p-3 m-2',
                     'id' => 'filter_announce_submit'
                 ]
             ]);

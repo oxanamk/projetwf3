@@ -147,4 +147,20 @@ class MonCompteController extends AbstractController
 
             return $this->redirect('/annonce/' . $annonce->getId());        }
     }
+    /**
+     * @Route("/supprimer-une-annonce/{id}", name="supprimer_annonce")
+     */
+    public function supprimerAnnonce($id): Response {
+
+        $repo = $this->getDoctrine()->getRepository(Announces::class);
+        $annonce = $repo->find($id);
+
+        if (empty($annonce)) throw new NotFoundHttpException();
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($annonce);
+        $em->flush();
+
+        return $this->redirectToRoute('redirection');
+    }
 }
