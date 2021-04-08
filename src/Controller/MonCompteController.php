@@ -137,7 +137,6 @@ class MonCompteController extends AbstractController
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirect('../mon_compte');
-        }
+            return $this->redirect('/annonce/' . $annonce->getId());        }
     }
 }

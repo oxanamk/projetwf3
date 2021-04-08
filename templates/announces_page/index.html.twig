@@ -24,26 +24,21 @@
 
 		<section class="container" id="annoncepage">
 			<div class="grid">
-				{% for a in annonces %}
-					<div class="card">
-						<img src="{{asset('asset/images/' ~ a.image)}}" alt="image annonce" class="card-image-top m-auto" style="max-height:280px; max-width:300px;">
-						<div class="card-body">
-							<div class="justify-content-between d-flex">
-								<h4 class="card-title">{{a.prenom}}</h4>
-								<span class="text-success font-weight-bold" >
-									{{a.statut.statut}}
-								</span>
-							</div>
-							<div class="card-title">
-								<p class="text text-muted">{{a.description}}
-								</p>
-							</div>
-						</div>
-					</div>
-
-					
-
-				{% endfor %}
+		{% for a in annonces %}
+                    <div class="card mt-5" style="min-width: 300px; max-width: 300px;">
+                        <img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="100%" height="100%" class="m-auto">
+                        <div class="card-body">
+                          <h5 class="card-title">{{a.titre}}</h5>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
+                            <li class="list-group-item">Prenom : {{a.prenom}}</li>
+                          </ul>
+                          <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
+                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier</a></button>
+                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('supprimer_annonce', {'id': a.id}) }}">Supprimer</a></button>
+                        </div>
+                    </div>
+                    {% endfor %}
 			</div>
 		</section>	
 	</main>
