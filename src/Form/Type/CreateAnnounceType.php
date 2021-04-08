@@ -127,6 +127,8 @@ class CreateAnnounceType extends AbstractType
                         'image/jpeg',
                         'image/png',
                         'image/gif',
+                        'image/jpg',
+                        'image/webp',
                     ]
                 ]),
             ]

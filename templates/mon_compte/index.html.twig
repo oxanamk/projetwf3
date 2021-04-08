@@ -13,6 +13,15 @@
         background-color: white;
 
     }
+    @media screen and (max-width:1000px) {
+
+        .mesAnnonces div {
+            display: flex !important; 
+            flex-direction: column !important;
+        }
+
+        
+    }
 </style>
 
 <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mon profil :</h2>
@@ -29,23 +38,21 @@
                     <p class="text-center mt-5">{{userDescription}}</p>
                 </div>
             </article>
-        </section>
-        <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mes annonces :</h2>
-        <section class="container mt-5 mesAnnonces">
-            <article>
-                <div class="d-flex justify-centent-center m-auto">
+            <h2 class="text-center mt-5 text-white p-2" style="background-color: #7FC386;">Mes annonces :</h2>
+            <article class=" mt-5 mesAnnonces">
+                <div class=" grid m-auto">
                     {% for a in annonce %}
                     <div class="card mt-5 m-auto" style="min-width: 300px; max-width: 300px;">
                         <img src="{{ asset('asset/images/' ~ a.image )}}" alt="" width="100%" height="100%" class="m-auto">
                         <div class="card-body">
-                          <h5 class="card-title">{{a.titre}}</h5>
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
-                            <li class="list-group-item">Prenom : {{a.prenom}}</li>
-                          </ul>
-                          <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
-                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier</a></button>
-                          <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('supprimer_annonce', {'id': a.id}) }}">Supprimer</a></button>
+                            <h5 class="card-title">{{a.titre}}</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{% if a.statut.id == "1" %}<img src="{{ asset('asset/images/Particulier.png')}}" alt="" width="80%" height="80%" class="m-auto"> {% elseif a.statut.id == "2" == '2' %} <img src="{{ asset('asset/images/Eleveur.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% elseif a.statut.id == "3" == '3' %} <img src="{{ asset('asset/images/Adoptant.png')}}" alt="" width="70%" height="80%" class="m-auto"> {% endif %}</li>
+                                <li class="list-group-item">Prenom : {{a.prenom}}</li>
+                            </ul>
+                            <p class="card-text">{{ a.description|length > 100 ? a.description|slice(0, 100) ~ '...' : a.description  }}</p>
+                            <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('mon_annonce', {'id': a.id}) }}">Modifier</a></button>
+                            <button class="btn btn-lg text-center text-decoration-none"><a href="{{ path('supprimer_annonce', {'id': a.id}) }}">Supprimer</a></button>
                         </div>
                     </div>
                     {% endfor %}

@@ -3,6 +3,24 @@
 {% block title %}Modifier un utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Modifier un utilisateur</h1>
-    {{ form(userForm) }}
+<style>
+    body {
+		background: url("{{ asset('asset/images/wood.webp') }}");
+	}
+    main {
+        margin-top: 10rem;
+    }
+    footer {
+        display: none;
+    }
+    button {
+        padding: 0.5rem;
+    }
+</style>
+<main>
+    <section class="container mt-5 bg-dark text-white p-5 rounded">
+        <h1>Modifier un utilisateur</h1>
+        {{ form(userForm) }}
+    </section>
+</main>
 {% endblock %}
