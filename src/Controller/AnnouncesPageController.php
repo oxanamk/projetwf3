@@ -47,4 +47,16 @@ class AnnouncesPageController extends AbstractController
         }
         return new Response('faux');
     }
+
+    /**
+     * @Route("/announces/page/voir_annonce/{id}", name="voir_annonce")
+     */
+
+
+    public function voirAnnonce(): Response
+    {
+        return $this->render('accueil/start.html.twig', [
+            'controller_name' => 'AccueilController',
+        ]);
+    }
 }
