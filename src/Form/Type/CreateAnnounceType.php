@@ -5,6 +5,7 @@ namespace App\Form\Type;
 use App\Entity\Announces;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -35,6 +36,10 @@ class CreateAnnounceType extends AbstractType
                 'id' => 'titre',
                 'required'
             ]
+        ])
+        ->add('urgent', CheckboxType::class, [
+            'label'=>'URGENT',
+            'required'=>false,
         ])
         ->add('espece', EntityType::class,[
             'label' => 'Choisir l\'animal  ',
@@ -92,11 +97,16 @@ class CreateAnnounceType extends AbstractType
         ->add('statut', EntityType::class, [
             'label' => 'Choisir le statut  ',
             'attr' => [
-                'class' => 'checker text-center font-weight-semibold',
+                'class' => 'text-center font-weight-semibold',
+                'placeholder' => 'Votre statut',
+                'name' => 'statut',
+                'type' => 'text',
+                'id' => 'statut',
+                'required'
+
             ],
             'class' => 'App\Entity\Statut',
-            'choice_label' => 'Statut',
-            'required'=> false
+            'choice_label' => 'statut',
        ]) 
         ->add('image', FileType::class, [
             'attr' => [
@@ -156,6 +166,41 @@ class CreateAnnounceType extends AbstractType
             'choice_label' => 'type',
             'expanded' => 'true',
             'multiple'=>'true'
+        ])
+
+        ->add('region', TextType::class,[
+            'attr' => [
+                'label' => 'Région :',
+                'placeholder' => 'Régions',
+                'class' => 'form-control',
+                'name' => 'region',
+                'type' => 'region',
+                'id' => 'region',
+                'required'
+            ]
+        ])
+        ->add('departement', TextType::class,[
+            'attr' => [
+                'label' => 'Département :',
+                'placeholder' => 'Département',
+                'class' => 'form-control',
+                'name' => 'departement',
+                'type' => 'departement',
+                'id' => 'departement',
+                'required'
+            ]
+        ])
+
+        ->add('ville', TextType::class,[
+            'attr' => [
+                'label' => 'Ville :',
+                'placeholder' => 'Ville',
+                'class' => 'form-control',
+                'name' => 'ville',
+                'type' => 'ville',
+                'id' => 'ville',
+                'required'
+            ]
         ])
       
         ->add('tel', NumberType::class, [

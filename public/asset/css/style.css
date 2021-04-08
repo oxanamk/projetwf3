@@ -779,3 +779,54 @@ hr {
     background-color: #7FC386;
     width: 100%;
 }
+
+
+/*-----------------------------------------------announce page filter ---------------------------------*/
+
+#filter_announce_qualites input,
+#filter_announce_conditions_de_vie input,
+#filter_announce_couleur input,
+#filter_announce_espece input {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#filter_announce_qualites input:checked+label,
+#filter_announce_conditions_de_vie input:checked+label,
+#filter_announce_couleur input:checked+label,
+#filter_announce_espece input:checked+label {
+    border: 3px solid #7FC386;
+}
+
+#filter_announce_qualites label,
+#filter_announce_conditions_de_vie label,
+#filter_announce_couleur label,
+#filter_announce_espece label {
+    margin: 0.5rem;
+    padding: 5px;
+    border: 1px solid #707070;
+    color: #707070;
+    cursor: pointer;
+    margin: auto;
+}
+
+label {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #707070;
+}
+
+#filter_announce_submit {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 30%;
+}
+
+#cardfilter {
+    width: 35%;
+}
