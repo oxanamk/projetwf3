@@ -3,6 +3,7 @@
 {% block body %}
 <body class="bodyAccueil m-0">
     <main>
+    
         <section class="sectionImage">
             <div id="imageAccueil">
             </div>
@@ -26,7 +27,8 @@
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
-                    <br>   
+                    <br>  
+                     
                     <button class="form-control btn btn-lg mt-3 text-center" id="btnsignin" type="submit">Rechercher</button>
                 </form>  
             </section>
@@ -34,8 +36,19 @@
         <section class="mt-5 sectionDerniereAnnonce">
             <article>
                 <h2 class="h3 font-weight-bold">Nos dernières annonces :</h2>
-                {# {% for annonce in annonces %}
-                {% endfor %} #}
+                {% for a in annonces %}
+                <div class="card">
+                    <img src="{{asset('asset/images/' ~ a.image)}}" alt="image annonce" class="card-image-top m-auto" style="max-height:280px; max-width:300px;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{a.prenom}}</h4>
+                        <div class="card-title">
+                            <p class="text text-muted">{{a.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
             </article>
         </section>
         <section class="mt-5 sectionCoeur">

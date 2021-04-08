@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class MonCompteController extends AbstractController
@@ -34,9 +35,9 @@ class MonCompteController extends AbstractController
     /**
      * @Route("/mon_compte/{id}", name="mon_compte")
      */
-    public function index($id = null, Request $r): Response
+    public function index($id = null, Request $r, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-
+        $users = new Users();
         $id = $this->getUser()->getId();
         
         $editCompte = $this->getDoctrine()
@@ -62,6 +63,7 @@ class MonCompteController extends AbstractController
         ->findBy(['user' => $id]);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
+
             
             return $this->render('mon_compte/index.html.twig', [
                 'form' => $form->createView(),
@@ -86,7 +88,13 @@ class MonCompteController extends AbstractController
                 $form->addError(new FormError('Une erreur est survenue pendant l\'upload du fichier : ' . $ex->getMessage()));
                 throw new Exception('File upload error');
             }
-            
+
+            $user = $this->getUser();
+            $newpwd = $form->get('password')['first']->getData();
+            $newEncodedPassword = $passwordEncoder->encodePassword($user, $newpwd);
+
+            $user->setPassword($newEncodedPassword);
+
             $account->setImage($fileName);
 
             $em = $this->getDoctrine()->getManager();

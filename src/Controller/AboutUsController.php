@@ -17,4 +17,13 @@ class AboutUsController extends AbstractController
             'controller_name' => 'AboutUsController',
         ]);
     }
+    /**
+     * @Route("/aboutus/nous_aider", name="nous_aider")
+     */
+    public function nousAider(): Response
+    {
+        return $this->render('about_us/nous_aider.html.twig', [
+            'controller_name' => 'AboutUsController',
+        ]);
+    }
 }

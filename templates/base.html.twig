@@ -61,7 +61,7 @@
                         <a class="nav-link mr-5 font-weight-bold {% if route == 'about_us' %}active text-white{% endif %}" href="{{ path('about_us') }}">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('app_login') }}">Nous aider</a>
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'nousAider' %}active text-white{% endif %}" href="{{ path('nous_aider') }}">Nous aider</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mr-5 font-weight-bold {% if route == 'app_login' %}active text-white text-white{% endif %}" href="{{ path('app_login') }}" title="User">
@@ -69,14 +69,14 @@
                             Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mr-5 font-weight-bold {% if route == 'sign_up' %}active text-white{% endif %}" href="{{ path('sign_up') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
+                        <a class="nav-link mr-5 font-weight-bold {% if route == 'sign_up' %}active text-white{% endif %}{% if route == 'sign_up' %}active text-white{% endif %}" href="{{ path('sign_up') }}"><i class="fa fa-user mr-1"></i>Inscription</a>
                     </li>
                     <hr>
                     <li class="nav-item">
-                        <a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('app_login') }}">Règles confidentialité</a>
+                        <a id="linkactive1" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'rdc' %}active text-white{% endif %}" href="{{ path('confidentialite') }}">Règles confidentialité</a>
                     </li>
                     <li class="nav-item">
-                        <a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('app_login') }}">CGU</a>
+                        <a id="linkactive2" class="nav-link auto-disable mr-5 font-weight-bold {% if route == 'cgu' %}active text-white{% endif %}" href="{{ path('cgu') }}">CGU</a>
                     </li>
                     <img id="navPaw" class="auto-disable" src="{{ asset('asset/images/pawmenu.png') }}" alt="" width="100" height="100" class="ml-auto">
                   </ul>
@@ -84,10 +84,10 @@
               </nav>
         </header>
     {% endblock %}
-
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block body %}
+    <body id="startPage">
+       
+    </body>{% endblock %}
     <footer>
         {% block footer %}
         <footer class="bg-dark">

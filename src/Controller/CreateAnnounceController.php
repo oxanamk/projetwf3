@@ -37,7 +37,7 @@ class CreateAnnounceController extends AbstractController
     /**
      * @Route("/create/announce", name="create_announce")
      */
-    public function creerAnnonce(Request $r): Response {
+    public function creerAnnonce(Request $r, UserInterface $user): Response {
 
         $annonce = new Announces();
 
@@ -71,9 +71,9 @@ class CreateAnnounceController extends AbstractController
             }
             
             
-            $user_id = $this->getUser()->getId();
+            $user = $this->getUser();
             $annonce->setImage($fileName);
-            $annonce->setUser(null);
+            $annonce->setUser($user);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
