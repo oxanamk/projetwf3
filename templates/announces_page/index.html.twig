@@ -12,23 +12,28 @@
 	</header>
 
 	<main class="d-flex">
-		<aside>
+		<aside id="cardfilter">
 			<div class="card">
 				<h1 class="card-header">Affiner la catégorie</h1>
 				<section class="card-body">
-				{{ form(form)}}
-				</section>
+					{{ form(form)}}
+					</section>
 
-			</div>
-		</aside>
+				</div>
+			</aside>
 
-		<section class="container">
+		<section class="container" id="annoncepage">
 			<div class="grid">
 				{% for a in annonces %}
 					<div class="card">
 						<img src="{{asset('asset/images/' ~ a.image)}}" alt="image annonce" class="card-image-top m-auto" style="max-height:280px; max-width:300px;">
 						<div class="card-body">
-							<h4 class="card-title">{{a.prenom}}</h4>
+							<div class="justify-content-between d-flex">
+								<h4 class="card-title">{{a.prenom}}</h4>
+								<span class="text-success font-weight-bold" >
+									{{a.statut.statut}}
+								</span>
+							</div>
 							<div class="card-title">
 								<p class="text text-muted">{{a.description}}
 								</p>
@@ -36,9 +41,11 @@
 						</div>
 					</div>
 
+					
+
 				{% endfor %}
 			</div>
-		</section>
+		</section>	
 	</main>
 
 

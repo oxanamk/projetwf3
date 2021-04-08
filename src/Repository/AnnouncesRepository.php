@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Announces;
+use App\Form\Type\FilterAnnounceType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -46,21 +47,21 @@ class AnnouncesRepository extends ServiceEntityRepository
 
         if ($espece != null) {
             $query->leftjoin('a.espece', 'e');
-            $query->andWhere('e.id = :id')
-                ->setParameter('id', $espece);
+            $query->andWhere('e.id = :id_espece')
+                ->setParameter('id_espece', $espece);
         }
         if ($couleur != null) {
             $query->leftjoin('a.couleur', 'co');
-            $query->andWhere('co.id = :id')
-                ->setParameter('id', $couleur);
+            $query->andWhere('co.id = :id_couleur')
+                ->setParameter('id_couleur', $couleur);
         }
         if ($statut != null) {
             $query->leftjoin('a.statut', 's');
-            $query->andWhere('s.id = :id')
-                ->setParameter('id', $statut);
+            $query->andWhere('s.id = :id_statut')
+                ->setParameter('id_statut', $statut);
         }
 
-       
+
         return $query->getQuery()->getResult();
     }
 
@@ -72,6 +73,18 @@ class AnnouncesRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
+    /**
+     * return Anounces[]
+     */
+    /*public function findSearch(array $form=null): array
+    {
+        $query = $this
+            ->createQueryBuilder('a')
+            ->select('a','e')
+            ->join('a.espece', 'e')
+            ->andWhere('e.id = :id');
+        return $query->getQuery()->getResult();
+    }
 
     // /**
     //  * @return Announces[] Returns an array of Announces objects

@@ -5,9 +5,11 @@ namespace App\Form\Type;
 use App\Entity\Announces;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,21 +23,24 @@ class FilterAnnounceType extends AbstractType
                 'label' => 'Choisir l\'animal  ',
                 'attr' => [
                     'class' => 'checker text-center font-weight-semibold',
+                    'id' => 'filter_announce_espece'
                 ],
                 'class' => 'App\Entity\Espece',
                 'choice_label' => 'espece',
-                'required'=> false
+                'required' => false
 
             ])
             ->add('couleur', EntityType::class, [
                 'label' => 'Choisir la couleur  ',
                 'attr' => [
                     'class' => 'checker text-center font-weight-semibold',
+                    'id' => 'filter_announce_couleur'
                 ],
                 'class' => 'App\Entity\Couleur',
                 'choice_label' => 'couleur',
-                'required'=> false
+                'required' => false
             ])
+
 
 
             ->add('statut', EntityType::class, [
@@ -45,14 +50,56 @@ class FilterAnnounceType extends AbstractType
                 ],
                 'class' => 'App\Entity\Statut',
                 'choice_label' => 'statut',
-                'required'=> false
-           ])
+                'required' => false
+            ])
 
-            ->add('date', DateType::class, [
-                'format' => 'dd/MM/yyyy',
-                'required'=> false
+            ->add('urgent', CheckboxType::class, [
+                'label' => 'URGENT',
+                'required' => false,
+            ])
+
+            ->add('region', TextType::class, [
+                'attr' => [
+                    'label' => 'Région :',
+                    'placeholder' => 'Régions',
+                    'class' => 'form-control',
+                    'name' => 'region',
+                    'type' => 'region',
+                    'id' => 'region',
+                ],
+                'required'=>false,
 
             ])
+
+
+            ->add('departement', TextType::class, [
+                'attr' => [
+                    'label' => 'Département :',
+                    'placeholder' => 'Département',
+                    'class' => 'form-control',
+                    'name' => 'departement',
+                    'type' => 'departement',
+                    'id' => 'departement',
+
+                ],
+                'required'=>false,
+
+            ])
+
+            ->add('ville', TextType::class, [
+                'attr' => [
+                    'label' => 'Ville :',
+                    'placeholder' => 'Ville',
+                    'class' => 'form-control',
+                    'name' => 'ville',
+                    'type' => 'ville',
+                    'id' => 'ville',
+
+                ],
+                'required'=>false,
+
+            ])
+
 
             ->add(
                 'qualites',
@@ -60,26 +107,28 @@ class FilterAnnounceType extends AbstractType
                 [
                     'label' => 'Choisir vos principales qualités : ',
                     'attr' => [
-                        'class' => 'checker text-center font-weight-semibold',
+                        'class' => 'checker text-center font-weight-semibold d-block',
+                        'id' => 'filter_announce_qualites'
                     ],
                     'class' => 'App\Entity\Caracteres',
                     'choice_label' => 'nom_caractere',
                     'expanded' => 'true',
                     'multiple' => 'true',
-                    'required'=> false
+                    'required' => false
 
                 ]
             )
             ->add('conditions_de_vie', EntityType::class, [
                 'label' => 'Choisir des conditions de vies idéales  : ',
                 'attr' => [
-                    'class' => 'checker text-center font-weight-semibold',
+                    'class' => 'checker text-center font-weight-semibold d-block',
+                    'id' => 'filter_announce_conditions_de_vie'
                 ],
                 'class' => 'App\Entity\ConditionsVie',
                 'choice_label' => 'type',
                 'expanded' => 'true',
                 'multiple' => 'true',
-                'required'=> false
+                'required' => false
 
             ])
 
@@ -88,6 +137,7 @@ class FilterAnnounceType extends AbstractType
                 'attr' => [
                     'label' => 'Publier votre annonce',
                     'class' => 'btn btn-lg mt-3 text-center btnsignup',
+                    'id' => 'filter_announce_submit'
                 ]
             ]);
     }
