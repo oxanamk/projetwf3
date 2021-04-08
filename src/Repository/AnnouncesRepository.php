@@ -19,6 +19,14 @@ class AnnouncesRepository extends ServiceEntityRepository
         parent::__construct($registry, Announces::class);
     }
 
+    public function accueilAnnonce()
+    {
+        $query = $this->getEntityManager()->createQuery("
+            SELECT * FROM App\Entity\Announces LIMIT 3
+        ");
+        return $query->getResult();
+    }
+
     public function findByUserAnnonce()
     {
         $em = $this->getEntityManager();

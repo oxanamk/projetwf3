@@ -16,6 +16,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Users implements UserInterface
 {
+        
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -67,6 +68,10 @@ class Users implements UserInterface
     public function __construct()
     {
         $this->announce_id = new ArrayCollection();
+        $this->roles = array('ROLE_USER');
+        if ($this->roles = array('ROLE_ADMIN')) {
+            $this->roles = array('ROLE_ADMIN');
+        }
     }
 
     public function getId(): ?int

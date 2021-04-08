@@ -71,9 +71,9 @@ class CreateAnnounceController extends AbstractController
             }
             
             
-            $user_id = $this->getUser()->getId();
+            $user = $this->getUser();
             $annonce->setImage($fileName);
-            $annonce->setUser($user_id);
+            $annonce->setUser($user);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
