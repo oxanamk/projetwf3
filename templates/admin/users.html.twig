@@ -14,43 +14,46 @@
         display: none;
     }
 </style>
-<main>
-<section class="container mt-5 bg-dark text-white p-5 rounded">
-    <h1>Liste des utilisateurs</h1>
-    <table class="table text-white">
-        <thead>
-            <th class="col">ID</th>
-            <th class="col">Email</th>
-            <th class="col">Rôles</th>
-            <th class="col">Articles</th>
-            <th class="col">Actions</th>
-        </thead>
-        <tbody>
-            {# On boucle sur les utilisateurs #}
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        {# On boucle sur les rôles #}
-                        {% for role in user.roles %}
+<body>
+    
+    <main>
+        <section class="container mt-5 bg-dark text-white p-5 rounded">
+            <h1>Liste des utilisateurs</h1>
+            <table class="table text-white">
+                <thead>
+                    <th class="col">ID</th>
+                    <th class="col">Email</th>
+                    <th class="col">Rôles</th>
+                    <th class="col">Articles</th>
+                    <th class="col">Actions</th>
+                </thead>
+                <tbody>
+                    {# On boucle sur les utilisateurs #}
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {# On boucle sur les rôles #}
+                            {% for role in user.roles %}
                             {% if role == "ROLE_USER" %}
-                                Utilisateur
+                            Utilisateur
                             {% elseif role == "ROLE_EDITOR" %}
-                                Editeur
+                            Editeur
                             {% elseif role == "ROLE_ADMIN" %}
-                                Administrateur
+                            Administrateur
                             {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td><a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}">Modifier</a></td>
-                </tr>
-                
-            {% else %}
-                <p>Aucun utilisateur inscrit</p>
-            {% endfor %}
-        </tbody>
-    </table>
-</section>
-
-{% endblock %}
+                            {% endfor %}
+                        </td>
+                        <td><a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}">Modifier</a></td>
+                    </tr>
+                    
+                    {% else %}
+                    <p>Aucun utilisateur inscrit</p>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </body>
+        
+        {% endblock %}

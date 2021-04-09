@@ -58,15 +58,19 @@
 
 </style>
 
-<div id="imageCreerAnnonce">
-</div>
-<section class="container sectionFormAnnonce">
-	<div class="container mt-5">
-		<h2 class="text-center mt-5">Modifier votre annonce</h2>
-
-		{{ form_start(form, { 'action': path('mon_annonce', {'id': id}) }) }}
-  
-		{{ form_end(form) }}
+<body>
+	
+	
+	<div id="imageCreerAnnonce">
+	</div>
+	<section class="container sectionFormAnnonce">
+		<div class="container mt-5">
+			<h2 class="text-center mt-5">Modifier votre annonce</h2>
+			
+			{{ form_start(form, { 'action': path('mon_annonce', {'id': id}) }) }}
+			
+			{{ form_end(form) }}
 		</div>
-</section>
+	</section>
+</body>
 	{% endblock %}

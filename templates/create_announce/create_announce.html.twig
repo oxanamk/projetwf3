@@ -56,18 +56,20 @@
 	}
 
 </style>
-
-<div >
+<body>
+	
+	<div >
 		<img src="{{ asset('asset/images/applati.jpg') }}" id="imageCreerAnnonce">
-
-</div>
-<section class="container sectionFormAnnonce">
-	<div class="container mt-5">
-		<h2 class="text-center mt-5">Creer votre annonce</h2>
-
-		{{ form_start(form, { 'action': path('create_announce') }) }}
-  
-		{{ form_end(form) }}
+		
+	</div>
+	<section class="container sectionFormAnnonce">
+		<div class="container mt-5">
+			<h2 class="text-center mt-5">Creer votre annonce</h2>
+			
+			{{ form_start(form, { 'action': path('create_announce') }) }}
+			
+			{{ form_end(form) }}
 		</div>
-</section>
+	</section>
+</body>
 	{% endblock %}
