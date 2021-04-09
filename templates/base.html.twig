@@ -99,6 +99,14 @@
     {% endblock %}
 
     {% block footer %}
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+
+        {% endfor %}
+    
         <footer class="bg-dark">
             <section class="textcolor d-flex m-auto" id="sec1foot">
                 <section class="d-block mb-3 m-auto">
@@ -145,7 +153,7 @@
                     <section class="contactFooter m-auto">
                         <h3 class="text-center text-white mt-3">Nous contacter:</h3>
                         <hr>
-                        <form method="post" action="" class=" d-flex justify-content-center flex-column" >
+                        <form method="post" action="{{ path('contact')}}" class=" d-flex justify-content-center flex-column" >
                 
                             <label for="name"></label>
                             <input type="text" name="nom" id="name" placeholder="Nom" class="form-control"/>
