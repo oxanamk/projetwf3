@@ -33,6 +33,8 @@ class SignUpController extends AbstractController
 
             $password = $passwordEncoder->encodePassword($user, $user->getPassword());
 					$user->setPassword($password);
+            $roles = $user->getRoles();
+            $user->setRoles($roles);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
