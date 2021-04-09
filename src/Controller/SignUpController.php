@@ -38,7 +38,7 @@ class SignUpController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->render('accueil/index.html.twig');
+            return $this->render('about_us/index.html.twig');
         }
     }
 }

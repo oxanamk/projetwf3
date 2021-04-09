@@ -37,7 +37,7 @@ class EditMonCompteType extends AbstractType
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passes doivent être identique.',
-                'options' => ['attr' => ['class' => 'password-field']],
+                'options' => ['attr' => ['class' => 'password-field form-control']],
                 'required' => true,
                 'first_options'  => ['label' => 'Votre mot de passe'],
                 'second_options' => ['label' => 'Comfirmer votre mot de passe'],
