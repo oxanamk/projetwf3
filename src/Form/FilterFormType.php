@@ -58,20 +58,7 @@ class FilterAnnounceType extends AbstractType
                 'required' => false,
             ])
 
-            ->add('region', TextType::class, [
-                'attr' => [
-                    'label' => 'Région :',
-                    'placeholder' => 'Régions',
-                    'class' => 'form-control p-3 m-2',
-                    'name' => 'region',
-                    'type' => 'region',
-                    'id' => 'region',
-                ],
-                'required'=>false,
-
-            ])
-
-
+          
             ->add('departement', TextType::class, [
                 'attr' => [
                     'label' => 'Département :',
@@ -86,19 +73,7 @@ class FilterAnnounceType extends AbstractType
 
             ])
 
-            ->add('ville', TextType::class, [
-                'attr' => [
-                    'label' => 'Ville :',
-                    'placeholder' => 'Ville',
-                    'class' => 'form-control p-3 m-2',
-                    'name' => 'ville',
-                    'type' => 'ville',
-                    'id' => 'ville',
-
-                ],
-                'required'=>false,
-
-            ])
+            
 
 
             ->add(
