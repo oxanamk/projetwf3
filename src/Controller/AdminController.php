@@ -15,9 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminController extends AbstractController
 {
-    /**
-     * @Route("/", name="accueil")
-     */
     public function index()
     {
         return $this->render('admin/index.html.twig', [

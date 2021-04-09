@@ -38,7 +38,7 @@ class ContactController extends AbstractController {
 
             $email = new MimeEmail();
             $email->from(Address::create('Portfolio de 2alheure <test.symfony@2alheure.fr>'))
-                ->to('jojo77.juv@live.fr')
+                ->to('Enji28500@hotmail.fr')
                 ->replyTo($data['email'])
                 ->subject('Tu as reçu un mail de contact !')
                 ->html('<html><body>test')
