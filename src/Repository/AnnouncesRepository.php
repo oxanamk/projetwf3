@@ -41,37 +41,38 @@ class AnnouncesRepository extends ServiceEntityRepository
         return $userAnnonce;
     }
 
-    public function search($espece = null, $couleur = null, $statut = null, $caractere = null, $lieux=null)
+    public function search($espece = null, $couleur = null, $statut = null, $caractere = null, $lieux = null)
     {
         $query = $this->createQueryBuilder('a');
 
-        if ($espece != null) {
+        if (!empty($espece)) {
             $query->leftjoin('a.espece', 'e');
             $query->andWhere('e.id = :id_espece')
                 ->setParameter('id_espece', $espece);
         }
-        if ($couleur != null) {
+        if (!empty($couleur)) {
             $query->leftjoin('a.couleur', 'co');
             $query->andWhere('co.id = :id_couleur')
                 ->setParameter('id_couleur', $couleur);
         }
-        if ($statut != null) {
+        if (!empty($statut)) {
             $query->leftjoin('a.statut', 's');
             $query->andWhere('s.id = :id_statut')
                 ->setParameter('id_statut', $statut);
         }
-        if ($caractere != null) {
-            $query->leftjoin('a.qualites', 'c');
-            $query->andWhere('c.id = :id_caractere')
-                ->setParameter('id_caractere', $caractere);
-        }
-        if ($lieux != null) {
-            $query->leftjoin('a.conditions_de_vie', 'cond');
-            $query->andWhere('cond.id = :id_lieux')
-                ->setParameter('id_lieux', $lieux);
-        }
+       
+        // if (!empty($caractere)) {
+        //     $query->leftjoin('a.qualites', 'c');
+        //     $query->andWhere('c.id = :id_caractere')
+        //         ->setParameter('id_caractere', $caractere);
+        // }
+        // if (!empty($lieux)) {
+        //     $query->leftjoin('a.conditions_de_vie', 'cond');
+        //     $query->andWhere('cond.id = :id_lieux')
+        //         ->setParameter('id_lieux', $lieux);
+        // }
 
-
+      //  dd($query->getQuery()->getParameters());
         return $query->getQuery()->getResult();
     }
 

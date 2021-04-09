@@ -16,7 +16,7 @@ class AnnouncesPageController extends AbstractController
     /**
      * @Route("/announces/page", name="announces_page")
      */
-    public function afficherTousLesArticle(AnnouncesRepository $annoncesRepo, Request $request): Response
+    public function afficherTousLesArticle(AnnouncesRepository $repository, Request $request): Response
     {
 
 
@@ -29,12 +29,12 @@ class AnnouncesPageController extends AbstractController
         $search = $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $annonces = $annoncesRepo->search(
+            $annonces = $repository->search(
                 $search->get('espece')->getData(),
                 $search->get('couleur')->getData(),
                 $search->get('statut')->getData(),
-                $search->get('qualites')->getData(),
-                $search->get('conditions_de_vie')->getData(),
+                // $search->get('qualites')->getData(),
+                // $search->get('conditions_de_vie')->getData(),
             );
             return $this->render('announces_page/index.html.twig', [
                 'form' => $search->createView(),
