@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-    {% block title %}<title><img src="{{ asset('asset/images/AdoptAnimal.png') }}" alt=""> Adopt'Animal</title>{% endblock %}
+    {% block title %}<title>Adopt'Animal</title>{% endblock %}
         <meta charset="UTF-8">
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
+        <link rel="icon" type="image/png" href="{{ asset('asset/images/AdoptAnimal.png') }}"> 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" href={{ asset('asset/css/style.css') }}>
@@ -25,10 +26,11 @@
         #logoPaw:hover {
             background-color: none;
         }
-        @media screen and (min-width:0px) and (max-width:720px) {
+        @media screen and (min-width:0px) and (max-width:850px) {
         .adoptAnimal {
             display: none;
         }
+        *  {  font-size: x-large; }
     }
         
     </style>
