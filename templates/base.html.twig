@@ -44,7 +44,7 @@
                 <span class="navbar-text ml-5 titre adoptAnimal">
                     Adopt'Animal
                 </span>
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if is_granted('ROLE_USER') %}
                 <a class="nav-link mr-5 font-weight-bold hover{% if route == 'mon_compte' %}active text-white{% endif %} {% if route == 'app_login' %} d-none {% elseif route == 'sign_up' %} d-none {% endif %}" href="{{ path('redirection') }}"><img id="navAccountImg" src="{{ asset('asset/images/account.png') }}" alt="" width="35" height="26" class="ml-3 d-inline-block align-text-top rounded-circle"></a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}

@@ -28,7 +28,7 @@ class MonCompteController extends AbstractController
         
         $id = $this->getUser()->getId();
 
-        return $this->redirect('../mon_compte/' . $id);
+        return $this->redirect('mon_compte/' . $id);
     }
 
 
@@ -96,12 +96,14 @@ class MonCompteController extends AbstractController
             $user->setPassword($newEncodedPassword);
 
             $account->setImage($fileName);
+            $roles = $user->getRoles();
+            $user->setRoles($roles);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($account);
             $em->flush();
 
-            return $this->redirect('../mon_compte');
+            return $this->redirect('redirection');
     }
 }
 
@@ -145,7 +147,7 @@ class MonCompteController extends AbstractController
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirect('/annonce/' . $annonce->getId());        }
+            return $this->redirectToRoute('accueil');        }
     }
     /**
      * @Route("/supprimer-une-annonce/{id}", name="supprimer_annonce")
