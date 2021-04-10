@@ -16,9 +16,8 @@
                     </div>
     
     
-                    {{ form(form)}}  
-                     
-                    <button class="form-control btn btn-lg mt-3 text-center" id="btnsignin" type="submit">Rechercher</button>
+                    {{ form(form, {'action': path('announces_page')})}}  
+                    <a href="{{ path('announces_page')}}"><button class="form-control btn btn-lg mt-3 text-center" id="btnsignin" type="submit">Rechercher</button></a>
                 </form>  
             </section>
         </section>
