@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\Type;
+namespace App\Form;
 
 use App\Entity\Announces;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FilterAnnounceType extends AbstractType
+class FilterFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

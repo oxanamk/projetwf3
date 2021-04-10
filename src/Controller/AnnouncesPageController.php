@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Announces;
-use App\Form\Type\FilterAnnounceType;
+use App\Form\FilterFormType;
 use App\Repository\AnnouncesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +21,7 @@ class AnnouncesPageController extends AbstractController
 
 
 
-        $form = $this->createForm(FilterAnnounceType::class, null, array(
+        $form = $this->createForm(FilterFormType::class, null, array(
             'action' => $this->generateUrl('announces_page'),
             'method' => 'POST',
         ));
